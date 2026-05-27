@@ -1,0 +1,21 @@
+{
+  "name": "cofre-imperio-digital",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Landing page do Cofre Império Digital.",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "dev": "node scripts/serve.mjs .",
+    "start": "node scripts/serve.mjs dist"
+  },
+  "keywords": [
+    "landing-page",
+    "vercel",
+    "cofre-imperio-digital"
+  ],
+  "author": "Heavy Crown Money",
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=18"
+  }
+}
