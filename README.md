@@ -74,4 +74,4 @@ Esta landing page é estática. Você pode publicar em:
 
 ## Observação legal
 
-A seção de conversas é ilustrativa e fictícia, conforme sinalizado na própria página. A copy evita promessa de resultado garantido e reforça que resultados dependem de consistência, nicho, oferta, estratégia e execução.
+A seção de conversas é ilustrativa e fictícia, conforme sinalizado na própria página. A copy evita promessas exageradas e reforça que resultados dependem de consistência, nicho, oferta, estratégia e execução.
