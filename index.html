@@ -14,6 +14,43 @@
     <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="192x192" href="assets/android-chrome-192x192.png" />
     <meta name="theme-color" content="#050806" />
+    <!-- Meta Pixel: troque COLE_AQUI_O_ID_DO_PIXEL pelo ID numérico real do Pixel. -->
+    <script>
+      !(function (f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+          n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = true;
+        n.version = "2.0";
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = true;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s);
+      })(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
+
+      fbq("init", "COLE_AQUI_O_ID_DO_PIXEL");
+      fbq("track", "PageView");
+      fbq("track", "ViewContent", {
+        content_name: "Cofre Império Digital",
+        content_category: "Landing Page",
+        value: 97.9,
+        currency: "BRL"
+      });
+    </script>
+    <noscript>
+      <img
+        height="1"
+        width="1"
+        style="display:none"
+        src="https://www.facebook.com/tr?id=COLE_AQUI_O_ID_DO_PIXEL&ev=PageView&noscript=1"
+        alt=""
+      />
+    </noscript>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link

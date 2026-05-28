@@ -7,6 +7,15 @@ const CONFIG = {
 
 document.querySelectorAll("[data-checkout-link]").forEach((link) => {
   link.href = CONFIG.checkoutUrl;
+  link.addEventListener("click", () => {
+    if (typeof window.fbq === "function") {
+      window.fbq("track", "InitiateCheckout", {
+        content_name: "Cofre Império Digital",
+        value: 97.9,
+        currency: "BRL"
+      });
+    }
+  });
 });
 
 document.querySelectorAll("[data-whatsapp-link]").forEach((link) => {
