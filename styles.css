@@ -949,36 +949,52 @@ img {
     radial-gradient(circle at 12% 12%, rgba(56, 255, 122, 0.16), transparent 9rem);
 }
 
-.included-card:nth-child(1)::before,
-.included-card:nth-child(3)::before,
-.included-card:nth-child(9)::before,
-.included-card:nth-child(12)::before {
-  background:
-    url("assets/digital-pack.png") center / cover no-repeat;
+.included-card:nth-child(1)::before {
+  background: url("assets/card-motivacao-negocios.png") center / cover no-repeat;
 }
 
-.included-card:nth-child(2)::before,
-.included-card:nth-child(6)::before,
-.included-card:nth-child(8)::before,
-.included-card:nth-child(10)::before,
-.included-card:nth-child(11)::before {
-  background:
-    url("assets/phone-instagram.png") center / cover no-repeat;
+.included-card:nth-child(2)::before {
+  background: url("assets/card-memes.png") center / cover no-repeat;
+}
+
+.included-card:nth-child(3)::before {
+  background: url("assets/card-plrs-video.png") center / cover no-repeat;
 }
 
 .included-card:nth-child(4)::before {
-  background:
-    url("assets/lifestyle-success.png") center / cover no-repeat;
+  background: url("assets/card-lifestyle.png") center / cover no-repeat;
 }
 
 .included-card:nth-child(5)::before {
-  background:
-    url("assets/hero-bg.png") center / cover no-repeat;
+  background: url("assets/card-organizacao-financeira.png") center / cover no-repeat;
+}
+
+.included-card:nth-child(6)::before {
+  background: url("assets/card-grupos-nicho.png") center / cover no-repeat;
 }
 
 .included-card:nth-child(7)::before {
-  background:
-    url("assets/creator-panel.png") center / cover no-repeat;
+  background: url("assets/card-homens-poder.png") center / cover no-repeat;
+}
+
+.included-card:nth-child(8)::before {
+  background: url("assets/card-instagram.png") center / cover no-repeat;
+}
+
+.included-card:nth-child(9)::before {
+  background: url("assets/card-criativos.png") center / cover no-repeat;
+}
+
+.included-card:nth-child(10)::before {
+  background: url("assets/card-reels.png") center / cover no-repeat;
+}
+
+.included-card:nth-child(11)::before {
+  background: url("assets/card-stories.png") center / cover no-repeat;
+}
+
+.included-card:nth-child(12)::before {
+  background: url("assets/card-bonus-exclusivos.png") center / cover no-repeat;
 }
 
 .included-card:nth-child(2)::after,
