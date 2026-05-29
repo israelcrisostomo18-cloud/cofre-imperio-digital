@@ -913,47 +913,82 @@ img {
 .included-card {
   position: relative;
   overflow: hidden;
-  min-height: 164px;
+  min-height: 210px;
   padding: 22px;
-  border: 1px solid rgba(217, 164, 65, 0.16);
+  border: 1px solid rgba(217, 164, 65, 0.22);
   border-radius: var(--radius-lg);
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.018)),
+    radial-gradient(circle at 20% 8%, rgba(56, 255, 122, 0.14), transparent 11rem),
+    radial-gradient(circle at 82% 12%, rgba(217, 164, 65, 0.16), transparent 12rem),
+    linear-gradient(145deg, rgba(217, 164, 65, 0.1), rgba(255, 255, 255, 0.018)),
     #0b0d0b;
-  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.16);
+  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.2);
   display: grid;
-  align-content: start;
+  align-content: end;
   gap: 13px;
   transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
 }
 
-.included-card:nth-child(1),
-.included-card:nth-child(4),
-.included-card:nth-child(8),
-.included-card:nth-child(12) {
-  min-height: 220px;
-  align-content: end;
+.included-card::before,
+.included-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.included-card::before {
+  opacity: 0.58;
+  transform: scale(1.01);
+  transition: opacity 180ms ease, transform 220ms ease;
+}
+
+.included-card::after {
   background:
-    linear-gradient(180deg, rgba(5, 7, 6, 0.1), rgba(5, 7, 6, 0.86)),
+    linear-gradient(180deg, rgba(5, 7, 6, 0.1) 0%, rgba(5, 7, 6, 0.5) 42%, rgba(5, 7, 6, 0.94) 100%),
+    radial-gradient(circle at 12% 12%, rgba(56, 255, 122, 0.16), transparent 9rem);
+}
+
+.included-card:nth-child(1)::before,
+.included-card:nth-child(3)::before,
+.included-card:nth-child(9)::before,
+.included-card:nth-child(12)::before {
+  background:
     url("assets/digital-pack.png") center / cover no-repeat;
 }
 
-.included-card:nth-child(4) {
+.included-card:nth-child(2)::before,
+.included-card:nth-child(6)::before,
+.included-card:nth-child(8)::before,
+.included-card:nth-child(10)::before,
+.included-card:nth-child(11)::before {
   background:
-    linear-gradient(180deg, rgba(5, 7, 6, 0.06), rgba(5, 7, 6, 0.86)),
-    url("assets/lifestyle-success.png") center / cover no-repeat;
-}
-
-.included-card:nth-child(8) {
-  background:
-    linear-gradient(180deg, rgba(5, 7, 6, 0.08), rgba(5, 7, 6, 0.86)),
     url("assets/phone-instagram.png") center / cover no-repeat;
 }
 
-.included-card:nth-child(12) {
+.included-card:nth-child(4)::before {
   background:
-    linear-gradient(180deg, rgba(5, 7, 6, 0.08), rgba(5, 7, 6, 0.88)),
+    url("assets/lifestyle-success.png") center / cover no-repeat;
+}
+
+.included-card:nth-child(5)::before {
+  background:
+    url("assets/hero-bg.png") center / cover no-repeat;
+}
+
+.included-card:nth-child(7)::before {
+  background:
     url("assets/creator-panel.png") center / cover no-repeat;
+}
+
+.included-card:nth-child(2)::after,
+.included-card:nth-child(5)::after,
+.included-card:nth-child(6)::after,
+.included-card:nth-child(9)::after,
+.included-card:nth-child(11)::after {
+  background:
+    linear-gradient(180deg, rgba(5, 7, 6, 0.14) 0%, rgba(5, 7, 6, 0.56) 44%, rgba(5, 7, 6, 0.94) 100%),
+    radial-gradient(circle at 74% 18%, rgba(217, 164, 65, 0.2), transparent 11rem);
 }
 
 .included-card:hover,
@@ -964,23 +999,41 @@ img {
   border-color: rgba(217, 164, 65, 0.34);
 }
 
+.included-card:hover::before {
+  opacity: 0.72;
+  transform: scale(1.04);
+}
+
 .included-card h3 {
+  position: relative;
+  z-index: 1;
   color: #fbf4e5;
   line-height: 1.16;
 }
 
 .included-card p {
+  position: relative;
+  z-index: 1;
   font-size: 0.94rem;
+  color: rgba(239, 232, 217, 0.82);
+  line-height: 1.45;
 }
 
 .content-icon {
+  position: absolute;
+  z-index: 1;
+  top: 18px;
+  left: 18px;
   display: inline-grid;
   place-items: center;
-  width: 42px;
-  height: 42px;
-  border: 1px solid rgba(217, 164, 65, 0.28);
-  border-radius: 10px;
-  background: rgba(217, 164, 65, 0.08);
+  width: auto;
+  min-width: 42px;
+  height: 34px;
+  padding: 0 10px;
+  border: 1px solid rgba(217, 164, 65, 0.34);
+  border-radius: 999px;
+  background: rgba(5, 7, 6, 0.74);
+  backdrop-filter: blur(10px);
   color: var(--gold-2);
   font-size: 0.78rem;
   font-weight: 900;
@@ -1706,12 +1759,8 @@ details p {
     margin-top: 0;
   }
 
-  .included-card,
-  .included-card:nth-child(1),
-  .included-card:nth-child(4),
-  .included-card:nth-child(8),
-  .included-card:nth-child(12) {
-    min-height: 170px;
+  .included-card {
+    min-height: 190px;
   }
 
   .content-preview,
