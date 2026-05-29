@@ -783,6 +783,36 @@ img {
   gap: 16px;
 }
 
+.product-collage {
+  position: relative;
+  min-height: 560px;
+  align-content: end;
+}
+
+.product-collage .product-showcase-image {
+  width: min(88%, 680px);
+  justify-self: start;
+}
+
+.collage-personas {
+  position: absolute;
+  right: 0;
+  top: 18px;
+  width: min(58%, 430px);
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border: 1px solid rgba(217, 164, 65, 0.28);
+  border-radius: 20px;
+  box-shadow: var(--shadow), 0 0 52px rgba(56, 255, 122, 0.08);
+}
+
+.product-collage .metric-strip {
+  width: min(84%, 560px);
+  position: relative;
+  z-index: 2;
+  margin-top: -22px;
+}
+
 .pack-card {
   min-height: 360px;
   padding: 28px;
@@ -881,8 +911,10 @@ img {
 }
 
 .included-card {
-  min-height: 190px;
-  padding: 24px;
+  position: relative;
+  overflow: hidden;
+  min-height: 164px;
+  padding: 22px;
   border: 1px solid rgba(217, 164, 65, 0.16);
   border-radius: var(--radius-lg);
   background:
@@ -893,6 +925,35 @@ img {
   align-content: start;
   gap: 13px;
   transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.included-card:nth-child(1),
+.included-card:nth-child(4),
+.included-card:nth-child(8),
+.included-card:nth-child(12) {
+  min-height: 220px;
+  align-content: end;
+  background:
+    linear-gradient(180deg, rgba(5, 7, 6, 0.1), rgba(5, 7, 6, 0.86)),
+    url("assets/digital-pack.png") center / cover no-repeat;
+}
+
+.included-card:nth-child(4) {
+  background:
+    linear-gradient(180deg, rgba(5, 7, 6, 0.06), rgba(5, 7, 6, 0.86)),
+    url("assets/lifestyle-success.png") center / cover no-repeat;
+}
+
+.included-card:nth-child(8) {
+  background:
+    linear-gradient(180deg, rgba(5, 7, 6, 0.08), rgba(5, 7, 6, 0.86)),
+    url("assets/phone-instagram.png") center / cover no-repeat;
+}
+
+.included-card:nth-child(12) {
+  background:
+    linear-gradient(180deg, rgba(5, 7, 6, 0.08), rgba(5, 7, 6, 0.88)),
+    url("assets/creator-panel.png") center / cover no-repeat;
 }
 
 .included-card:hover,
@@ -934,16 +995,22 @@ img {
 
 .bonus-layout {
   display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+  align-items: stretch;
   gap: 22px;
 }
 
+.bonus-layout .cards.three {
+  grid-template-columns: repeat(2, 1fr);
+}
+
 .bonus-image {
-  min-height: 320px;
+  min-height: 100%;
   max-height: 520px;
 }
 
 .bonus-image img {
-  aspect-ratio: 16 / 7;
+  aspect-ratio: 4 / 5;
 }
 
 .access .container {
@@ -957,6 +1024,25 @@ img {
 
 .access-visual img {
   aspect-ratio: 16 / 6;
+}
+
+.access-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(340px, 1.08fr);
+  gap: 22px;
+  align-items: stretch;
+}
+
+.access-layout .steps-grid {
+  grid-template-columns: 1fr;
+}
+
+.access-layout .access-visual {
+  min-height: auto;
+}
+
+.access-layout .access-visual img {
+  aspect-ratio: auto;
 }
 
 .steps-grid,
@@ -1473,6 +1559,15 @@ details p {
   .content-preview {
     grid-template-columns: 1fr;
   }
+
+  .bonus-layout,
+  .access-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .bonus-layout .cards.three {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 860px) {
@@ -1530,6 +1625,10 @@ details p {
   .access-visual img {
     aspect-ratio: 16 / 9;
   }
+
+  .product-collage {
+    min-height: 520px;
+  }
 }
 
 @media (max-width: 640px) {
@@ -1551,6 +1650,10 @@ details p {
   .cards.three,
   .chat-grid,
   .included-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bonus-layout .cards.three {
     grid-template-columns: 1fr;
   }
 
@@ -1580,6 +1683,35 @@ details p {
 
   .product-hero-frame {
     transform: none;
+  }
+
+  .product-collage {
+    min-height: auto;
+  }
+
+  .product-collage .product-showcase-image,
+  .collage-personas,
+  .product-collage .metric-strip {
+    width: 100%;
+  }
+
+  .collage-personas {
+    position: relative;
+    top: auto;
+    right: auto;
+    order: -1;
+  }
+
+  .product-collage .metric-strip {
+    margin-top: 0;
+  }
+
+  .included-card,
+  .included-card:nth-child(1),
+  .included-card:nth-child(4),
+  .included-card:nth-child(8),
+  .included-card:nth-child(12) {
+    min-height: 170px;
   }
 
   .content-preview,
