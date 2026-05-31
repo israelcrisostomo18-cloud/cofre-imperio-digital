@@ -13,6 +13,8 @@
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="192x192" href="assets/android-chrome-192x192.png" />
+    <link rel="preload" as="image" href="assets/optimized/hero-bg.webp" type="image/webp" fetchpriority="high" />
+    <link rel="preload" as="image" href="assets/optimized/cofre-viral-hcm-produto.webp" type="image/webp" fetchpriority="high" />
     <meta name="theme-color" content="#050806" />
     <!-- Meta Pixel -->
     <script>
@@ -54,7 +56,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
@@ -93,6 +95,10 @@
               <strong class="installment-price"><span>por apenas 3x de R$</span>34,94</strong>
               <small>ou R$ 97,90 à vista</small>
             </div>
+            <div class="urgency-banner" role="note" aria-label="Aviso de encerramento da oferta">
+              <strong>⚠️ Oferta de lançamento encerra hoje</strong>
+              <span>Após o encerramento da promoção, o valor pode voltar para R$ 297,90.</span>
+            </div>
 
             <div class="hero-actions">
               <a class="btn btn-primary" data-checkout-link href="[INSERIR LINK DO CHECKOUT]">Acessar o Cofre</a>
@@ -115,10 +121,13 @@
             </div>
             <figure class="product-hero-frame">
               <img
-                src="assets/cofre-viral-hcm-produto.png"
+                src="assets/optimized/cofre-viral-hcm-produto.webp"
                 alt="Imagem do produto Cofre Império Digital com notebook, celular e biblioteca de conteúdos digitais"
+                width="1200"
+                height="675"
                 loading="eager"
                 decoding="async"
+                fetchpriority="high"
               />
             </figure>
             <div class="notification-card floating-card card-b">
@@ -134,15 +143,19 @@
           <div class="product-stack product-collage reveal">
             <img
               class="product-showcase-image"
-              src="assets/digital-pack.png"
+              src="assets/optimized/digital-pack.webp"
               alt="Mockup visual de biblioteca digital organizada com notebook, celular, pastas e conteúdos do Cofre Império Digital"
+              width="1100"
+              height="619"
               loading="lazy"
               decoding="async"
             />
             <img
               class="collage-personas"
-              src="assets/creator-panel.png"
+              src="assets/optimized/creator-panel.webp"
               alt="Personagens fictícios usando notebook, celular e tablet em ambiente profissional"
+              width="1000"
+              height="563"
               loading="lazy"
               decoding="async"
             />
@@ -184,8 +197,10 @@
           </div>
           <div class="content-preview reveal" aria-label="Prévia visual da biblioteca digital organizada">
             <img
-              src="assets/section-cofre-preview.png"
+              src="assets/optimized/section-cofre-preview.webp"
               alt="Mockup premium de cofre digital com arquivos, categorias e conteúdos organizados"
+              width="1000"
+              height="563"
               loading="lazy"
               decoding="async"
             />
@@ -300,8 +315,10 @@
             </div>
             <figure class="bonus-image reveal">
               <img
-                src="assets/section-bonus-bundle.png"
+                src="assets/optimized/section-bonus-bundle.webp"
                 alt="Visual premium de bônus, checklist e materiais digitais organizados"
+                width="1000"
+                height="563"
                 loading="lazy"
                 decoding="async"
               />
@@ -336,8 +353,10 @@
             </div>
             <figure class="access-visual reveal">
               <img
-                src="assets/section-access-flow.png"
+                src="assets/optimized/section-access-flow.webp"
                 alt="Visual premium de acesso digital ao Cofre Império Digital pelo celular"
+                width="1000"
+                height="563"
                 loading="lazy"
                 decoding="async"
               />
@@ -413,6 +432,10 @@
             <span class="from-price">De <s>R$ 297,90</s></span>
             <strong class="price installment-price"><span>3x de R$</span>34,94</strong>
             <span class="installment">ou R$ 97,90 à vista</span>
+            <div class="urgency-banner compact" role="note" aria-label="Aviso de encerramento da oferta">
+              <strong>⚠️ Oferta de lançamento encerra hoje</strong>
+              <span>Após o encerramento da promoção, o valor pode voltar para R$ 297,90.</span>
+            </div>
             <a class="btn btn-primary full" data-checkout-link href="[INSERIR LINK DO CHECKOUT]">Acessar o Cofre</a>
             <p class="microcopy">Compra segura • Acesso digital • Garantia de 7 dias</p>
           </div>
@@ -472,6 +495,10 @@
           <span class="section-kicker">Comece agora</span>
           <h2>Tenha uma biblioteca digital pronta para acelerar sua produção.</h2>
           <p>Mais conteúdo, mais organização e mais velocidade para testar formatos sem começar do zero.</p>
+          <div class="urgency-banner center" role="note" aria-label="Aviso de encerramento da oferta">
+            <strong>⚠️ Oferta de lançamento encerra hoje</strong>
+            <span>Após o encerramento da promoção, o valor pode voltar para R$ 297,90.</span>
+          </div>
           <a class="btn btn-primary" data-checkout-link href="[INSERIR LINK DO CHECKOUT]">Acessar o Cofre</a>
         </div>
       </section>

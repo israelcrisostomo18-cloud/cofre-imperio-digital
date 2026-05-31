@@ -1,11 +1,42 @@
-import { cp, mkdir, rm } from "node:fs/promises";
+import { cp, mkdir, readFile, rm, writeFile } from "node:fs/promises";
 
 await rm("dist", { recursive: true, force: true });
 await mkdir("dist", { recursive: true });
+await mkdir("dist/assets", { recursive: true });
+await mkdir("dist/assets/optimized", { recursive: true });
 
-await cp("index.html", "dist/index.html");
-await cp("styles.css", "dist/styles.css");
-await cp("script.js", "dist/script.js");
-await cp("assets", "dist/assets", { recursive: true });
+const html = await readFile("index.html", "utf8");
+const css = await readFile("styles.css", "utf8");
+const js = await readFile("script.js", "utf8");
+
+await writeFile(
+  "dist/index.html",
+  html
+    .replace(/<!--(?! Meta Pixel| End Meta Pixel)[\s\S]*?-->/g, "")
+    .replace(/>\s+</g, "><")
+    .replace(/\n\s*\n/g, "\n")
+    .trim()
+);
+await writeFile(
+  "dist/styles.css",
+  css
+    .replace(/\/\*[\s\S]*?\*\//g, "")
+    .replace(/\s*([{}:;,>])\s*/g, "$1")
+    .replace(/\s{2,}/g, " ")
+    .trim()
+);
+await writeFile("dist/script.js", js.trim());
+
+await cp("assets/optimized", "dist/assets/optimized", { recursive: true });
+for (const asset of [
+  "favicon.ico",
+  "favicon-16.png",
+  "favicon-32.png",
+  "favicon-48.png",
+  "apple-touch-icon.png",
+  "android-chrome-192x192.png"
+]) {
+  await cp(`assets/${asset}`, `dist/assets/${asset}`);
+}
 
 console.log("Build completed: dist/");
