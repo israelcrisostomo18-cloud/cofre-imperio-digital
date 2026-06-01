@@ -11,7 +11,7 @@ document.querySelectorAll("[data-checkout-link]").forEach((link) => {
     if (typeof window.fbq === "function") {
       window.fbq("track", "InitiateCheckout", {
         content_name: "Cofre Império Digital",
-        value: 97.9,
+        value: 47.9,
         currency: "BRL"
       });
     }
