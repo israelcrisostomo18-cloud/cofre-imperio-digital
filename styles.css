@@ -263,6 +263,11 @@ img {
   z-index: 2;
 }
 
+.hero-copy h1 {
+  max-width: 820px;
+  font-size: clamp(2.35rem, 4.75vw, 4.8rem);
+}
+
 .clean-hero {
   min-height: auto;
   padding-top: 96px;
@@ -496,6 +501,59 @@ img {
 
 .product-hero-frame img,
 .product-showcase-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.authority-hero {
+  align-items: end;
+}
+
+.authority-hero::before {
+  content: "";
+  position: absolute;
+  inset: 8% -8% -6% 14%;
+  border-radius: 36px;
+  background:
+    radial-gradient(circle at 68% 18%, rgba(217, 164, 65, 0.22), transparent 17rem),
+    radial-gradient(circle at 28% 68%, rgba(56, 255, 122, 0.16), transparent 18rem),
+    linear-gradient(145deg, rgba(217, 164, 65, 0.08), rgba(5, 7, 6, 0.12));
+  filter: blur(2px);
+  pointer-events: none;
+}
+
+.authority-hero-frame {
+  position: relative;
+  width: min(470px, 41vw);
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid rgba(217, 164, 65, 0.28);
+  border-radius: 30px;
+  background: #050706;
+  box-shadow: var(--shadow), 0 0 90px rgba(217, 164, 65, 0.14);
+}
+
+.authority-hero-frame::before,
+.authority-hero-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.authority-hero-frame::before {
+  background:
+    linear-gradient(90deg, rgba(5, 7, 6, 0.34) 0%, transparent 34%),
+    linear-gradient(180deg, transparent 64%, rgba(5, 7, 6, 0.74) 100%);
+}
+
+.authority-hero-frame::after {
+  box-shadow: inset 0 0 0 1px rgba(255, 227, 160, 0.08), inset 0 -90px 110px rgba(5, 7, 6, 0.4);
+}
+
+.authority-hero-frame img {
   display: block;
   width: 100%;
   height: auto;
@@ -1699,6 +1757,19 @@ details p {
     min-height: auto;
   }
 
+  .authority-hero {
+    padding-top: 10px;
+  }
+
+  .authority-hero-frame {
+    width: min(430px, 100%);
+    margin: 0 auto;
+  }
+
+  .authority-hero::before {
+    inset: 8% 0 -4% 0;
+  }
+
   .product-hero-frame {
     width: min(100%, 720px);
   }
@@ -1782,6 +1853,15 @@ details p {
 
   .product-hero-frame {
     transform: none;
+  }
+
+  .authority-hero .floating-card {
+    display: none;
+  }
+
+  .authority-hero-frame {
+    width: min(360px, 100%);
+    border-radius: 22px;
   }
 
   .product-single .product-showcase-image,
