@@ -1,8 +1,8 @@
 // EDITE AQUI: troque estes placeholders pelos links finais da sua operação.
 const CONFIG = {
   checkoutUrl: "https://pay.kiwify.com.br/rb9PXsU",
-  whatsappUrl: "[INSERIR LINK DO WHATSAPP]",
-  supportUrl: "[INSERIR LINK DE SUPORTE]",
+  whatsappUrl: "https://wa.me/message/32R7UJIK7H4HB1",
+  supportUrl: "https://wa.me/message/32R7UJIK7H4HB1",
 };
 
 document.querySelectorAll("[data-checkout-link]").forEach((link) => {
