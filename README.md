@@ -43,7 +43,7 @@ No arquivo `script.js`, altere:
 
 ```js
 const CONFIG = {
-  checkoutUrl: "[INSERIR LINK DO CHECKOUT]",
+  checkoutUrl: "https://pay.kiwify.com.br/rb9PXsU",
   whatsappUrl: "[INSERIR LINK DO WHATSAPP]",
   supportUrl: "[INSERIR LINK DE SUPORTE]",
 };
