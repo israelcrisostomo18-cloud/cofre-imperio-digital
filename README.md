@@ -43,7 +43,7 @@ No arquivo `script.js`, altere:
 
 ```js
 const CONFIG = {
-  checkoutUrl: "https://pay.hotmart.com/R106118031H",
+  checkoutUrl: "https://pay.hotmart.com/R106118031H?checkoutMode=10",
   whatsappUrl: "https://wa.me/message/32R7UJIK7H4HB1",
   supportUrl: "https://wa.me/message/32R7UJIK7H4HB1",
 };
