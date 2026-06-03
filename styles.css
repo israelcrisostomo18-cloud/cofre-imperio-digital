@@ -900,6 +900,85 @@ img {
   margin-top: 0;
 }
 
+.cofre-showcase {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 14% 12%, rgba(56, 255, 122, 0.08), transparent 24rem),
+    radial-gradient(circle at 84% 22%, rgba(217, 164, 65, 0.12), transparent 24rem),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.018), rgba(217, 164, 65, 0.025));
+  border-block: 1px solid rgba(217, 164, 65, 0.1);
+}
+
+.cofre-showcase .container {
+  position: relative;
+  z-index: 1;
+}
+
+.cofre-showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.cofre-showcase-card {
+  overflow: hidden;
+  border: 1px solid rgba(217, 164, 65, 0.2);
+  border-radius: 20px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.018)),
+    #090d0a;
+  box-shadow: 0 18px 54px rgba(0, 0, 0, 0.2);
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.cofre-showcase-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(217, 164, 65, 0.34);
+  box-shadow: 0 24px 68px rgba(0, 0, 0, 0.24), 0 0 44px rgba(217, 164, 65, 0.08);
+}
+
+.cofre-showcase-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: contain;
+  padding: 10px;
+  background:
+    radial-gradient(circle at 85% 10%, rgba(56, 255, 122, 0.1), transparent 12rem),
+    linear-gradient(145deg, #f7f8f5, #e9ece8);
+}
+
+.cofre-showcase-card div {
+  display: grid;
+  gap: 8px;
+  padding: 18px;
+}
+
+.cofre-showcase-card h3 {
+  color: #fff8ec;
+}
+
+.cofre-showcase-card p {
+  color: rgba(239, 232, 217, 0.76);
+  font-size: 0.94rem;
+  line-height: 1.5;
+}
+
+.cofre-showcase-footer {
+  max-width: 780px;
+  margin: 30px auto 0;
+  display: grid;
+  justify-items: center;
+  gap: 18px;
+  text-align: center;
+}
+
+.cofre-showcase-footer p {
+  color: #efe8d9;
+  font-weight: 800;
+}
+
 .pack-card {
   min-height: 360px;
   padding: 28px;
@@ -1903,6 +1982,10 @@ details p {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .cofre-showcase-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .steps-grid,
   .trust-grid {
     grid-template-columns: 1fr;
@@ -2016,8 +2099,13 @@ details p {
   .cards.four,
   .cards.three,
   .chat-grid,
-  .included-grid {
+  .included-grid,
+  .cofre-showcase-grid {
     grid-template-columns: 1fr;
+  }
+
+  .cofre-showcase-card img {
+    aspect-ratio: 16 / 9;
   }
 
   .bonus-layout .cards.three {
