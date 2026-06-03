@@ -1,6 +1,6 @@
 // EDITE AQUI: troque estes placeholders pelos links finais da sua operação.
 const CONFIG = {
-  checkoutUrl: "https://pay.kiwify.com.br/5pvvg63",
+  checkoutUrl: "https://pay.hotmart.com/R106118031H",
   whatsappUrl: "https://wa.me/message/32R7UJIK7H4HB1",
   supportUrl: "https://wa.me/message/32R7UJIK7H4HB1",
 };
