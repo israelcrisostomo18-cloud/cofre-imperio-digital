@@ -345,6 +345,7 @@ img {
 
 .promo-price .old-price {
   color: var(--muted);
+  font-size: 1.1rem;
   font-weight: 800;
   text-decoration: line-through;
   text-decoration-color: rgba(255, 248, 236, 0.9);
@@ -2197,7 +2198,7 @@ img {
 }
 
 .from-price {
-  font-size: 1.05rem;
+  font-size: 1.155rem;
   font-weight: 800;
 }
 
