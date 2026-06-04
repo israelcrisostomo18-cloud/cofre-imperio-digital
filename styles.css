@@ -347,7 +347,7 @@ img {
   color: var(--muted);
   font-weight: 800;
   text-decoration: line-through;
-  text-decoration-color: rgba(255, 77, 109, 0.9);
+  text-decoration-color: rgba(255, 248, 236, 0.9);
   text-decoration-thickness: 2px;
 }
 
@@ -2203,7 +2203,7 @@ img {
 
 .from-price s {
   color: #7f8781;
-  text-decoration-color: rgba(255, 77, 109, 0.9);
+  text-decoration-color: rgba(255, 248, 236, 0.9);
   text-decoration-thickness: 2px;
 }
 
