@@ -36,6 +36,16 @@ body {
   letter-spacing: 0;
 }
 
+body.vsl-locked .site-header,
+body.vsl-locked main > section:not(.vsl-section),
+body.vsl-locked .site-footer {
+  display: none;
+}
+
+body.vsl-locked .vsl-section {
+  min-height: 100vh;
+}
+
 .cursor-follower {
   position: fixed;
   left: 0;
@@ -287,6 +297,10 @@ img {
   box-shadow: 0 28px 80px rgba(0, 0, 0, 0.38), 0 0 48px rgba(217, 164, 65, 0.08);
 }
 
+.vsl-player-card.is-playing {
+  cursor: default;
+}
+
 .vsl-player-card::before {
   content: "";
   position: absolute;
@@ -353,8 +367,37 @@ img {
   display: none;
 }
 
+.vsl-progress {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 18px;
+  z-index: 3;
+  height: 8px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(255, 248, 236, 0.14);
+  border: 1px solid rgba(255, 227, 160, 0.2);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.25);
+  pointer-events: none;
+}
+
+.vsl-progress span {
+  display: block;
+  width: 0%;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--gold-2), var(--gold) 58%, var(--green));
+  box-shadow: 0 0 18px rgba(217, 164, 65, 0.36);
+  transition: width 120ms linear;
+}
+
 .vsl-cta {
   min-width: min(100%, 280px);
+}
+
+.vsl-cta[hidden] {
+  display: none;
 }
 
 .hero {

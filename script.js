@@ -30,8 +30,51 @@ document.querySelectorAll("[data-vsl-player]").forEach((player) => {
   const video = player.querySelector("video");
   const source = player.querySelector("source[data-src]");
   const playButton = player.querySelector("[data-vsl-play]");
+  const progressFill = player.querySelector("[data-vsl-progress]");
+  const progressWrap = player.querySelector(".vsl-progress");
+  const section = player.closest(".vsl-section");
+  const vslCta = section ? section.querySelector(".vsl-cta") : null;
 
   if (!video || !source || !playButton) return;
+
+  let maxWatchedTime = 0;
+  let isRestoringTime = false;
+
+  video.controls = false;
+  video.disablePictureInPicture = true;
+  video.setAttribute("controlsList", "nodownload nofullscreen noremoteplayback");
+
+  const updateProgress = () => {
+    const duration = Number.isFinite(video.duration) ? video.duration : 0;
+    const percent = duration > 0 ? Math.min((video.currentTime / duration) * 100, 100) : 0;
+
+    if (progressFill) {
+      progressFill.style.width = `${percent}%`;
+    }
+
+    if (progressWrap) {
+      progressWrap.setAttribute("aria-valuenow", String(Math.round(percent)));
+    }
+  };
+
+  const unlockPage = () => {
+    document.body.classList.remove("vsl-locked");
+    document.body.classList.add("vsl-unlocked");
+    player.classList.remove("is-playing");
+    player.classList.add("is-complete");
+
+    if (progressFill) {
+      progressFill.style.width = "100%";
+    }
+
+    if (progressWrap) {
+      progressWrap.setAttribute("aria-valuenow", "100");
+    }
+
+    if (vslCta) {
+      vslCta.hidden = false;
+    }
+  };
 
   const loadVideo = () => {
     if (!source.src) {
@@ -40,13 +83,50 @@ document.querySelectorAll("[data-vsl-player]").forEach((player) => {
     }
 
     player.classList.add("is-loaded");
-    video.controls = true;
+    video.controls = false;
     video.play().catch(() => {
-      video.controls = true;
+      player.classList.remove("is-loaded", "is-playing");
+      playButton.disabled = false;
     });
   };
 
-  playButton.addEventListener("click", loadVideo, { once: true });
+  playButton.addEventListener("click", () => {
+    playButton.disabled = true;
+    loadVideo();
+  });
+
+  video.addEventListener("play", () => {
+    player.classList.add("is-playing");
+    video.controls = false;
+  });
+
+  video.addEventListener("contextmenu", (event) => event.preventDefault());
+
+  video.addEventListener("timeupdate", () => {
+    if (!isRestoringTime && video.currentTime > maxWatchedTime) {
+      maxWatchedTime = video.currentTime;
+    }
+
+    updateProgress();
+  });
+
+  video.addEventListener("seeking", () => {
+    if (isRestoringTime || video.ended) return;
+
+    if (Math.abs(video.currentTime - maxWatchedTime) > 0.65) {
+      isRestoringTime = true;
+      video.currentTime = maxWatchedTime;
+      isRestoringTime = false;
+    }
+  });
+
+  video.addEventListener("ratechange", () => {
+    if (video.playbackRate !== 1) {
+      video.playbackRate = 1;
+    }
+  });
+
+  video.addEventListener("ended", unlockPage);
 });
 
 const revealItems = document.querySelectorAll(".reveal");

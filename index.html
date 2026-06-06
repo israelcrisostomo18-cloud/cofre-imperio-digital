@@ -59,7 +59,7 @@
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
+  <body class="vsl-locked">
     <div class="cursor-follower" aria-hidden="true"></div>
     <header class="site-header">
       <a class="brand" href="#top" aria-label="Heavy Crown Money">
@@ -82,7 +82,7 @@
           <div class="vsl-copy reveal">
             <span class="section-kicker">Assista primeiro</span>
             <h1>Não sou um<br />guruzinho de internet.</h1>
-            <p>Assista esse vídeo rápido antes de acessar o conteúdo completo.</p>
+            <p>Assista esse vídeo até o final antes de acessar a oferta.</p>
           </div>
 
           <div class="vsl-player-card reveal" data-vsl-player>
@@ -99,9 +99,19 @@
               <span aria-hidden="true"></span>
               Assistir vídeo
             </button>
+            <div
+              class="vsl-progress"
+              role="progressbar"
+              aria-label="Progresso do vídeo"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              aria-valuenow="0"
+            >
+              <span data-vsl-progress></span>
+            </div>
           </div>
 
-          <a class="btn btn-primary vsl-cta" href="#oferta">Quero comprar logo</a>
+          <a class="btn btn-primary vsl-cta" href="#oferta" hidden>Quero comprar logo</a>
         </div>
       </section>
 

@@ -12,7 +12,8 @@ const types = {
   ".jpg": "image/jpeg",
   ".jpeg": "image/jpeg",
   ".webp": "image/webp",
-  ".svg": "image/svg+xml"
+  ".svg": "image/svg+xml",
+  ".mp4": "video/mp4"
 };
 
 const server = http.createServer(async (request, response) => {
