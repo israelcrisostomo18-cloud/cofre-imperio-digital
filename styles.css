@@ -208,6 +208,155 @@ img {
   box-shadow: 0 14px 42px rgba(217, 164, 65, 0.22), 0 0 28px rgba(56, 255, 122, 0.1);
 }
 
+.vsl-section {
+  position: relative;
+  isolation: isolate;
+  min-height: calc(100vh - 74px);
+  display: grid;
+  align-items: center;
+  padding: clamp(48px, 7vw, 84px) 0 clamp(52px, 7vw, 92px);
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 18%, rgba(56, 255, 122, 0.13), transparent 18rem),
+    radial-gradient(circle at 50% 64%, rgba(217, 164, 65, 0.14), transparent 22rem),
+    linear-gradient(180deg, #030504 0%, #07100b 52%, #050706 100%);
+  border-bottom: 1px solid rgba(217, 164, 65, 0.12);
+}
+
+.vsl-section::before,
+.vsl-section::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.vsl-section::before {
+  inset: 0;
+  background:
+    linear-gradient(120deg, rgba(255, 248, 236, 0.05), transparent 34%),
+    radial-gradient(circle at 16% 18%, rgba(217, 164, 65, 0.12), transparent 18rem);
+}
+
+.vsl-section::after {
+  width: min(74vw, 740px);
+  aspect-ratio: 1;
+  left: 50%;
+  bottom: -34%;
+  transform: translateX(-50%);
+  border: 1px solid rgba(217, 164, 65, 0.14);
+  border-radius: 50%;
+  box-shadow: inset 0 0 80px rgba(217, 164, 65, 0.06);
+}
+
+.vsl-container {
+  display: grid;
+  justify-items: center;
+  gap: 22px;
+  text-align: center;
+}
+
+.vsl-copy {
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+  max-width: 820px;
+}
+
+.vsl-copy h1 {
+  max-width: 820px;
+  font-size: clamp(2rem, 5.2vw, 4rem);
+  line-height: 0.96;
+}
+
+.vsl-copy p {
+  max-width: 620px;
+  color: rgba(239, 232, 217, 0.82);
+  font-size: clamp(1rem, 2vw, 1.22rem);
+}
+
+.vsl-player-card {
+  position: relative;
+  width: min(100%, 430px);
+  border: 1px solid rgba(217, 164, 65, 0.28);
+  border-radius: 24px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(217, 164, 65, 0.16), transparent 18rem),
+    #060907;
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.38), 0 0 48px rgba(217, 164, 65, 0.08);
+}
+
+.vsl-player-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(5, 7, 6, 0.06), rgba(5, 7, 6, 0.24));
+}
+
+.vsl-video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  max-height: min(66vh, 720px);
+  object-fit: cover;
+  background: #050706;
+}
+
+.vsl-play {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  gap: 12px;
+  border: 0;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.5)),
+    linear-gradient(180deg, transparent, rgba(5, 7, 6, 0.34));
+  color: #fff8ec;
+  font: inherit;
+  font-weight: 900;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.vsl-play span {
+  width: 76px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold-2), var(--gold) 55%, #39ff79);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.34), 0 0 40px rgba(217, 164, 65, 0.22);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  position: relative;
+}
+
+.vsl-play span::before {
+  content: "";
+  position: absolute;
+  left: 31px;
+  top: 23px;
+  width: 0;
+  height: 0;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-left: 22px solid #031107;
+}
+
+.vsl-player-card.is-loaded .vsl-play {
+  display: none;
+}
+
+.vsl-player-card.is-loaded::before {
+  display: none;
+}
+
+.vsl-cta {
+  min-width: min(100%, 280px);
+}
+
 .hero {
   isolation: isolate;
   padding-top: 96px;
@@ -2506,6 +2655,20 @@ details p {
     overflow-x: clip;
   }
 
+  .vsl-section {
+    min-height: calc(100vh - 92px);
+    padding-block: 74px 88px;
+  }
+
+  .vsl-player-card {
+    width: min(100%, 500px);
+    border-radius: 28px;
+  }
+
+  .vsl-video {
+    max-height: min(68vh, 760px);
+  }
+
   .container {
     width: min(1180px, calc(100% - 56px));
   }
@@ -2868,6 +3031,41 @@ details p {
 @media (max-width: 640px) {
   .section-pad {
     padding: 68px 0;
+  }
+
+  .vsl-section {
+    min-height: auto;
+    padding: 34px 0 52px;
+  }
+
+  .vsl-container {
+    gap: 16px;
+  }
+
+  .vsl-copy {
+    gap: 10px;
+  }
+
+  .vsl-copy h1 {
+    max-width: 13ch;
+    font-size: clamp(1.9rem, 8vw, 2.25rem);
+    line-height: 1.02;
+    overflow-wrap: break-word;
+  }
+
+  .vsl-copy p {
+    max-width: 31ch;
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+
+  .vsl-player-card {
+    width: min(100%, 320px);
+    border-radius: 20px;
+  }
+
+  .vsl-video {
+    max-height: 54vh;
   }
 
   .header-cta {

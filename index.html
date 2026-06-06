@@ -13,7 +13,6 @@
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="192x192" href="assets/android-chrome-192x192.png" />
-    <link rel="preload" as="image" href="assets/optimized/hero-vendas-autoridade.jpg" type="image/jpeg" fetchpriority="high" />
     <meta name="theme-color" content="#050806" />
     <!-- Meta Pixel -->
     <script>
@@ -78,6 +77,34 @@
     </header>
 
     <main id="top">
+      <section class="vsl-section" aria-label="Vídeo de apresentação">
+        <div class="container vsl-container">
+          <div class="vsl-copy reveal">
+            <span class="section-kicker">Assista primeiro</span>
+            <h1>Não sou um<br />guruzinho de internet.</h1>
+            <p>Assista esse vídeo rápido antes de acessar o conteúdo completo.</p>
+          </div>
+
+          <div class="vsl-player-card reveal" data-vsl-player>
+            <video
+              class="vsl-video"
+              preload="none"
+              playsinline
+              poster="assets/optimized/hero-vendas-autoridade.jpg"
+              aria-label="Vídeo de apresentação do Cofre Império Digital"
+            >
+              <source data-src="assets/optimized/vsl-whatsapp-2026-06-06.mp4" type="video/mp4" />
+            </video>
+            <button class="vsl-play" type="button" data-vsl-play aria-label="Assistir vídeo">
+              <span aria-hidden="true"></span>
+              Assistir vídeo
+            </button>
+          </div>
+
+          <a class="btn btn-primary vsl-cta" href="#oferta">Quero comprar logo</a>
+        </div>
+      </section>
+
       <section class="hero section-pad">
         <div class="container hero-grid">
           <span class="hero-glow hero-glow-gold" aria-hidden="true"></span>
@@ -100,7 +127,7 @@
                 alt="Empreendedor digital com notificações de vendas online"
                 width="1280"
                 height="1582"
-                fetchpriority="high"
+                loading="lazy"
                 decoding="async"
               />
             </div>

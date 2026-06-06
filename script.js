@@ -26,6 +26,29 @@ document.querySelectorAll("[data-support-link]").forEach((link) => {
   link.href = CONFIG.supportUrl;
 });
 
+document.querySelectorAll("[data-vsl-player]").forEach((player) => {
+  const video = player.querySelector("video");
+  const source = player.querySelector("source[data-src]");
+  const playButton = player.querySelector("[data-vsl-play]");
+
+  if (!video || !source || !playButton) return;
+
+  const loadVideo = () => {
+    if (!source.src) {
+      source.src = source.dataset.src;
+      video.load();
+    }
+
+    player.classList.add("is-loaded");
+    video.controls = true;
+    video.play().catch(() => {
+      video.controls = true;
+    });
+  };
+
+  playButton.addEventListener("click", loadVideo, { once: true });
+});
+
 const revealItems = document.querySelectorAll(".reveal");
 
 if ("IntersectionObserver" in window) {
