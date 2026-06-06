@@ -3166,7 +3166,16 @@ details p {
   }
 
   .promo-price {
-    width: 100%;
+    width: min(100%, 420px);
+    margin-inline: auto;
+    justify-items: center;
+    text-align: center;
+    gap: 9px;
+    padding: 18px 16px;
+  }
+
+  .hero-price {
+    justify-self: center;
   }
 
   .hero-image-wrapper {
@@ -3181,12 +3190,49 @@ details p {
 
   .promo-price strong,
   .price {
-    font-size: clamp(3.4rem, 18vw, 5.2rem);
+    width: 100%;
+    max-width: 100%;
+    justify-content: center;
+    text-align: center;
+    white-space: nowrap;
+    overflow-wrap: normal;
+    word-break: normal;
+    font-size: clamp(3.15rem, 15.5vw, 4.8rem);
+    line-height: 0.9;
   }
 
   .installment-price span {
     max-width: none;
+    width: auto;
+    text-align: center;
+    font-size: clamp(0.88rem, 3.6vw, 1rem);
+    line-height: 1.08;
+  }
+
+  .promo-label {
+    width: auto;
+    max-width: 100%;
+    white-space: normal;
+    text-align: center;
+    line-height: 1.25;
+  }
+
+  .promo-price .old-price,
+  .from-price {
+    display: block;
     width: 100%;
+    text-align: center;
+    white-space: nowrap;
+    font-size: clamp(0.98rem, 4vw, 1.12rem);
+  }
+
+  .promo-price small,
+  .installment {
+    display: block;
+    width: 100%;
+    text-align: center;
+    white-space: nowrap;
+    font-size: clamp(0.98rem, 4vw, 1.12rem);
   }
 
   .product-hero-frame {
@@ -3293,6 +3339,42 @@ details p {
     padding: 20px;
   }
 
+  .price-box {
+    width: 100%;
+    justify-items: center;
+    text-align: center;
+    gap: 12px;
+    padding: 24px 16px;
+    border-radius: 20px;
+  }
+
+  .price-box .promo-label {
+    max-width: 280px;
+  }
+
+  .price-box .installment-price {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 6px;
+    flex-wrap: nowrap;
+    width: 100%;
+  }
+
+  .price-box .installment-price span {
+    flex: 0 0 auto;
+    width: auto;
+  }
+
+  .price-box .btn.full {
+    width: 100%;
+    margin-top: 4px;
+  }
+
+  .price-box .microcopy {
+    text-align: center;
+  }
+
   .producer-card {
     gap: 20px;
     border-radius: 20px;
@@ -3318,6 +3400,59 @@ details p {
 
   .footer-links {
     flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .promo-price {
+    width: 100%;
+    padding: 16px 12px;
+    gap: 8px;
+  }
+
+  .promo-price strong,
+  .price {
+    font-size: clamp(2.55rem, 15vw, 3.75rem);
+    letter-spacing: 0;
+  }
+
+  .installment-price {
+    gap: 5px;
+  }
+
+  .installment-price span {
+    font-size: clamp(0.78rem, 3.7vw, 0.92rem);
+  }
+
+  .promo-label {
+    font-size: 0.68rem;
+    padding: 7px 9px;
+  }
+
+  .promo-price .old-price,
+  .from-price,
+  .promo-price small,
+  .installment {
+    font-size: clamp(0.9rem, 3.7vw, 1rem);
+  }
+
+  .price-box {
+    padding: 22px 12px;
+  }
+}
+
+@media (max-width: 360px) {
+  .promo-price strong,
+  .price {
+    font-size: clamp(2.2rem, 14.5vw, 3.05rem);
+  }
+
+  .installment-price {
+    gap: 4px;
+  }
+
+  .installment-price span {
+    font-size: 0.72rem;
   }
 }
 
