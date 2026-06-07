@@ -39,10 +39,27 @@ document.querySelectorAll("[data-vsl-player]").forEach((player) => {
 
   let maxWatchedTime = 0;
   let isRestoringTime = false;
+  let hasShownCta = false;
 
   video.controls = false;
   video.disablePictureInPicture = true;
   video.setAttribute("controlsList", "nodownload nofullscreen noremoteplayback");
+
+  const getCtaRevealTime = () => {
+    const duration = Number.isFinite(video.duration) ? video.duration : 0;
+
+    if (duration <= 0) return null;
+
+    return duration > 90 ? duration - 90 : duration * 0.7;
+  };
+
+  const showVslCta = () => {
+    if (!vslCta || hasShownCta) return;
+
+    hasShownCta = true;
+    vslCta.hidden = false;
+    requestAnimationFrame(() => vslCta.classList.add("is-visible"));
+  };
 
   const updateProgress = () => {
     const duration = Number.isFinite(video.duration) ? video.duration : 0;
@@ -71,9 +88,7 @@ document.querySelectorAll("[data-vsl-player]").forEach((player) => {
       progressWrap.setAttribute("aria-valuenow", "100");
     }
 
-    if (vslCta) {
-      vslCta.hidden = false;
-    }
+    showVslCta();
   };
 
   const loadVideo = () => {
@@ -102,12 +117,21 @@ document.querySelectorAll("[data-vsl-player]").forEach((player) => {
 
   video.addEventListener("contextmenu", (event) => event.preventDefault());
 
+  video.addEventListener("loadedmetadata", () => {
+    updateProgress();
+  });
+
   video.addEventListener("timeupdate", () => {
     if (!isRestoringTime && video.currentTime > maxWatchedTime) {
       maxWatchedTime = video.currentTime;
     }
 
     updateProgress();
+
+    const revealAt = getCtaRevealTime();
+    if (revealAt !== null && video.currentTime >= revealAt) {
+      showVslCta();
+    }
   });
 
   video.addEventListener("seeking", () => {
@@ -127,6 +151,20 @@ document.querySelectorAll("[data-vsl-player]").forEach((player) => {
   });
 
   video.addEventListener("ended", unlockPage);
+
+  if (vslCta) {
+    vslCta.addEventListener("click", (event) => {
+      event.preventDefault();
+
+      document.body.classList.remove("vsl-locked");
+      document.body.classList.add("vsl-unlocked");
+
+      const target = document.querySelector(vslCta.getAttribute("href"));
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    });
+  }
 });
 
 const revealItems = document.querySelectorAll(".reveal");
