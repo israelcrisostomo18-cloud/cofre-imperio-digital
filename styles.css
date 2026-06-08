@@ -1894,6 +1894,11 @@ img {
   backdrop-filter: blur(14px);
 }
 
+.producer-card-text-only {
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 920px;
+}
+
 .producer-info {
   display: grid;
   gap: 20px;
@@ -3032,8 +3037,12 @@ details p {
     box-sizing: border-box;
   }
 
+  .offer .container {
+    width: min(100%, calc(100vw - 24px));
+  }
+
   .offer-card {
-    width: min(100%, calc(100vw - 32px));
+    width: 100%;
     margin-inline: auto;
     overflow: hidden;
     gap: 20px;
@@ -3437,7 +3446,7 @@ details p {
   }
 
   .offer-card {
-    width: min(100%, calc(100vw - 24px));
+    width: 100%;
     padding: 16px;
     gap: 18px;
     border-radius: 20px;
@@ -3464,7 +3473,9 @@ details p {
     width: 100%;
     max-width: 100%;
     min-width: 0;
+    display: grid;
     justify-items: center;
+    align-content: start;
     text-align: center;
     gap: 12px;
     padding: 24px 14px;
@@ -3474,8 +3485,9 @@ details p {
 
   .price-box::before {
     background:
-      linear-gradient(180deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.72) 58%, rgba(0, 0, 0, 0.5) 100%),
-      url("assets/optimized/hero-cofre-mulher-premium.webp") center / cover no-repeat;
+      radial-gradient(circle at 50% 0%, rgba(217, 164, 65, 0.22), transparent 12rem),
+      linear-gradient(180deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.74) 100%);
+    opacity: 1;
     transform: none;
   }
 
@@ -3486,18 +3498,19 @@ details p {
   }
 
   .price-box .installment-price {
-    display: flex;
-    align-items: flex-end;
+    display: grid;
+    align-items: center;
     justify-content: center;
-    gap: 6px;
-    flex-wrap: nowrap;
+    justify-items: center;
+    gap: 3px;
+    flex-wrap: unset;
     width: 100%;
     max-width: 100%;
     min-width: 0;
   }
 
   .price-box .installment-price span {
-    flex: 0 0 auto;
+    flex: initial;
     width: auto;
   }
 
@@ -3522,6 +3535,7 @@ details p {
   .price-box .urgency-banner.compact {
     width: 100%;
     padding: 12px 10px;
+    justify-items: center;
   }
 
   .price-box .microcopy {
@@ -3532,6 +3546,10 @@ details p {
   .producer-card {
     gap: 20px;
     border-radius: 20px;
+  }
+
+  .producer-card-text-only {
+    width: min(100%, calc(100vw - 24px));
   }
 
   .producer-photo {
@@ -3595,8 +3613,12 @@ details p {
   }
 
   .offer-card {
-    width: min(100%, calc(100vw - 20px));
+    width: 100%;
     padding: 12px;
+  }
+
+  .offer .container {
+    width: min(100%, calc(100vw - 16px));
   }
 
   .price-box .btn.full {
