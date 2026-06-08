@@ -2995,6 +2995,12 @@ details p {
 }
 
 @media (max-width: 860px) {
+  html,
+  body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
   .site-header {
     border-radius: 18px;
   }
@@ -3010,6 +3016,27 @@ details p {
   .offer-card,
   .producer-card {
     grid-template-columns: 1fr;
+  }
+
+  .offer {
+    overflow-x: hidden;
+  }
+
+  .offer .container,
+  .offer-card,
+  .offer-card > *,
+  .price-box,
+  .price-box > * {
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  .offer-card {
+    width: min(100%, calc(100vw - 32px));
+    margin-inline: auto;
+    overflow: hidden;
+    gap: 20px;
   }
 
   .clean-hero .hero-grid {
@@ -3409,17 +3436,53 @@ details p {
     padding: 20px;
   }
 
-  .price-box {
-    width: 100%;
-    justify-items: center;
-    text-align: center;
-    gap: 12px;
-    padding: 24px 16px;
+  .offer-card {
+    width: min(100%, calc(100vw - 24px));
+    padding: 16px;
+    gap: 18px;
     border-radius: 20px;
   }
 
+  .offer-copy {
+    justify-items: center;
+    text-align: center;
+    gap: 18px;
+  }
+
+  .offer-copy p,
+  .value-stack,
+  .value-stack span {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+
+  .clean-stack span {
+    padding-left: 0;
+  }
+
+  .price-box {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    justify-items: center;
+    text-align: center;
+    gap: 12px;
+    padding: 24px 14px;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  .price-box::before {
+    background:
+      linear-gradient(180deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.72) 58%, rgba(0, 0, 0, 0.5) 100%),
+      url("assets/optimized/hero-cofre-mulher-premium.webp") center / cover no-repeat;
+    transform: none;
+  }
+
   .price-box .promo-label {
+    width: 100%;
     max-width: 280px;
+    overflow-wrap: anywhere;
   }
 
   .price-box .installment-price {
@@ -3429,6 +3492,8 @@ details p {
     gap: 6px;
     flex-wrap: nowrap;
     width: 100%;
+    max-width: 100%;
+    min-width: 0;
   }
 
   .price-box .installment-price span {
@@ -3438,11 +3503,30 @@ details p {
 
   .price-box .btn.full {
     width: 100%;
+    max-width: 100%;
+    min-width: 0;
     margin-top: 4px;
+    padding-inline: 18px;
+  }
+
+  .price-box .microcopy,
+  .price-box .urgency-banner,
+  .price-box .urgency-banner strong,
+  .price-box .urgency-banner span {
+    max-width: 100%;
+    text-align: center;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  .price-box .urgency-banner.compact {
+    width: 100%;
+    padding: 12px 10px;
   }
 
   .price-box .microcopy {
-    text-align: center;
+    justify-self: center;
+    line-height: 1.45;
   }
 
   .producer-card {
@@ -3507,7 +3591,21 @@ details p {
   }
 
   .price-box {
-    padding: 22px 12px;
+    padding: 22px 10px;
+  }
+
+  .offer-card {
+    width: min(100%, calc(100vw - 20px));
+    padding: 12px;
+  }
+
+  .price-box .btn.full {
+    padding-inline: 14px;
+    font-size: 0.86rem;
+  }
+
+  .price-box .microcopy {
+    font-size: 0.86rem;
   }
 }
 
