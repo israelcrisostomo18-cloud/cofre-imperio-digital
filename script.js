@@ -28,38 +28,14 @@ document.querySelectorAll("[data-support-link]").forEach((link) => {
 
 document.querySelectorAll("[data-vsl-player]").forEach((player) => {
   const video = player.querySelector("video");
-  const source = player.querySelector("source[data-src]");
-  const playButton = player.querySelector("[data-vsl-play]");
   const progressFill = player.querySelector("[data-vsl-progress]");
   const progressWrap = player.querySelector(".vsl-progress");
   const section = player.closest(".vsl-section");
   const vslCta = section ? section.querySelector(".vsl-cta") : null;
 
-  if (!video || !source || !playButton) return;
+  if (!video) return;
 
-  let maxWatchedTime = 0;
-  let isRestoringTime = false;
-  let hasShownCta = false;
-
-  video.controls = false;
-  video.disablePictureInPicture = true;
-  video.setAttribute("controlsList", "nodownload nofullscreen noremoteplayback");
-
-  const getCtaRevealTime = () => {
-    const duration = Number.isFinite(video.duration) ? video.duration : 0;
-
-    if (duration <= 0) return null;
-
-    return duration > 90 ? duration - 90 : duration * 0.7;
-  };
-
-  const showVslCta = () => {
-    if (!vslCta || hasShownCta) return;
-
-    hasShownCta = true;
-    vslCta.hidden = false;
-    requestAnimationFrame(() => vslCta.classList.add("is-visible"));
-  };
+  video.controls = true;
 
   const updateProgress = () => {
     const duration = Number.isFinite(video.duration) ? video.duration : 0;
@@ -74,90 +50,26 @@ document.querySelectorAll("[data-vsl-player]").forEach((player) => {
     }
   };
 
-  const unlockPage = () => {
-    document.body.classList.remove("vsl-locked");
-    document.body.classList.add("vsl-unlocked");
-    player.classList.remove("is-playing");
-    player.classList.add("is-complete");
-
-    if (progressFill) {
-      progressFill.style.width = "100%";
-    }
-
-    if (progressWrap) {
-      progressWrap.setAttribute("aria-valuenow", "100");
-    }
-
-    showVslCta();
-  };
-
-  const loadVideo = () => {
-    if (!source.src) {
-      source.src = source.dataset.src;
-      video.load();
-    }
-
-    player.classList.add("is-loaded");
-    video.controls = false;
-    video.play().catch(() => {
-      player.classList.remove("is-loaded", "is-playing");
-      playButton.disabled = false;
-    });
-  };
-
-  playButton.addEventListener("click", () => {
-    playButton.disabled = true;
-    loadVideo();
-  });
-
   video.addEventListener("play", () => {
+    player.classList.add("is-loaded");
     player.classList.add("is-playing");
-    video.controls = false;
   });
 
-  video.addEventListener("contextmenu", (event) => event.preventDefault());
+  video.addEventListener("pause", () => {
+    player.classList.remove("is-playing");
+  });
 
   video.addEventListener("loadedmetadata", () => {
     updateProgress();
   });
 
   video.addEventListener("timeupdate", () => {
-    if (!isRestoringTime && video.currentTime > maxWatchedTime) {
-      maxWatchedTime = video.currentTime;
-    }
-
     updateProgress();
-
-    const revealAt = getCtaRevealTime();
-    if (revealAt !== null && video.currentTime >= revealAt) {
-      showVslCta();
-    }
   });
-
-  video.addEventListener("seeking", () => {
-    if (isRestoringTime || video.ended) return;
-
-    if (Math.abs(video.currentTime - maxWatchedTime) > 0.65) {
-      isRestoringTime = true;
-      video.currentTime = maxWatchedTime;
-      isRestoringTime = false;
-    }
-  });
-
-  video.addEventListener("ratechange", () => {
-    if (video.playbackRate !== 1) {
-      video.playbackRate = 1;
-    }
-  });
-
-  video.addEventListener("ended", unlockPage);
 
   if (vslCta) {
     vslCta.addEventListener("click", (event) => {
       event.preventDefault();
-
-      document.body.classList.remove("vsl-locked");
-      document.body.classList.add("vsl-unlocked");
 
       const target = document.querySelector(vslCta.getAttribute("href"));
       if (target) {

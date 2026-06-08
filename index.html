@@ -59,7 +59,7 @@
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body class="vsl-locked">
+  <body>
     <div class="cursor-follower" aria-hidden="true"></div>
     <header class="site-header">
       <a class="brand" href="#top" aria-label="Heavy Crown Money">
@@ -80,25 +80,22 @@
       <section class="vsl-section" aria-label="Vídeo de apresentação">
         <div class="container vsl-container">
           <div class="vsl-copy reveal">
-            <span class="section-kicker">Assista primeiro</span>
+            <span class="section-kicker">Assista quando quiser</span>
             <h1>Não sou um<br />guruzinho de internet.</h1>
-            <p>Assista esse vídeo até o final antes de acessar a oferta.</p>
+            <p>Dê play, pause quando precisar e continue explorando a página no seu ritmo.</p>
           </div>
 
           <div class="vsl-player-card reveal" data-vsl-player>
             <video
               class="vsl-video"
+              controls
               preload="none"
               playsinline
               poster="assets/optimized/hero-vendas-autoridade.jpg"
               aria-label="Vídeo de apresentação do Cofre Império Digital"
             >
-              <source data-src="assets/optimized/vsl-whatsapp-2026-06-06.mp4" type="video/mp4" />
+              <source src="assets/optimized/vsl-whatsapp-2026-06-06.mp4" type="video/mp4" />
             </video>
-            <button class="vsl-play" type="button" data-vsl-play aria-label="Assistir vídeo">
-              <span aria-hidden="true"></span>
-              Assistir vídeo
-            </button>
             <div
               class="vsl-progress"
               role="progressbar"
@@ -116,7 +113,7 @@
             <p>Dentro do Cofre, você encontra materiais, copys, criativos e estratégias prontas para usar como base no seu negócio digital.</p>
           </div>
 
-          <a class="btn btn-primary vsl-cta" href="#oferta" hidden>Quero acessar o Cofre agora</a>
+          <a class="btn btn-primary vsl-cta is-visible" href="#oferta">Quero acessar o Cofre agora</a>
         </div>
       </section>
 
@@ -127,25 +124,12 @@
           <span class="floating-shape shape-cube" aria-hidden="true"></span>
           <span class="floating-shape shape-ring" aria-hidden="true"></span>
           <span class="floating-shape shape-line" aria-hidden="true"></span>
-          <div class="hero-copy reveal">
+          <div class="hero-copy hero-copy-no-image reveal">
             <div class="eyebrow">Cofre Império Digital • +17TB organizados</div>
             <h1>Transforme o digital em uma máquina de vendas todos os dias</h1>
             <p class="hero-subtitle">
               Acesse uma estrutura prática para vender online com mais clareza, autoridade e estratégia, mesmo começando do zero.
             </p>
-
-            <div class="hero-image-wrapper" aria-label="Empreendedor digital com notificações de vendas online">
-              <span class="hero-image-halo" aria-hidden="true"></span>
-              <img
-                class="hero-main-image"
-                src="assets/optimized/hero-vendas-autoridade.jpg"
-                alt="Empreendedor digital com notificações de vendas online"
-                width="1280"
-                height="1582"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
 
             <div class="promo-price hero-price" aria-label="Oferta especial de lançamento">
               <span class="promo-label">Cursos, Packs e Materiais para Viver da Internet</span>
