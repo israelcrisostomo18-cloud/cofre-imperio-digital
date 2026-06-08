@@ -3473,12 +3473,14 @@ details p {
     width: 100%;
     max-width: 100%;
     min-width: 0;
-    display: grid;
+    display: flex;
+    flex-direction: column;
     justify-items: center;
+    align-items: center;
     align-content: start;
     text-align: center;
-    gap: 12px;
-    padding: 24px 14px;
+    gap: 10px;
+    padding: 24px 14px 18px;
     border-radius: 20px;
     overflow: hidden;
   }
@@ -3497,29 +3499,70 @@ details p {
     overflow-wrap: anywhere;
   }
 
+  .price-box .from-price {
+    order: 1;
+    width: auto;
+    margin: 2px auto 4px;
+    color: rgba(239, 232, 217, 0.75);
+    font-size: clamp(16px, 4vw, 22px);
+    line-height: 1.1;
+    opacity: 0.75;
+    text-align: center;
+  }
+
+  .price-box .from-price s {
+    color: inherit;
+    text-decoration: line-through;
+    text-decoration-color: rgba(255, 248, 236, 0.92);
+    text-decoration-thickness: 2px;
+  }
+
   .price-box .installment-price {
-    display: grid;
-    align-items: center;
+    order: 2;
+    display: flex;
+    align-items: baseline;
     justify-content: center;
-    justify-items: center;
-    gap: 3px;
-    flex-wrap: unset;
+    gap: 8px;
+    flex-wrap: wrap;
     width: 100%;
     max-width: 100%;
     min-width: 0;
+    color: var(--gold-2);
+    font-size: clamp(64px, 18vw, 96px);
+    line-height: 0.9;
+    font-weight: 900;
+    letter-spacing: -2px;
+    text-align: center;
   }
 
   .price-box .installment-price span {
-    flex: initial;
+    flex: 0 0 auto;
     width: auto;
+    color: #f5ead2;
+    font-size: clamp(18px, 5vw, 26px);
+    font-weight: 800;
+    line-height: 1;
+    white-space: nowrap;
+    letter-spacing: 0;
+    text-transform: none;
   }
 
-  .price-box .btn.full {
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
+  .price-box .installment {
+    order: 3;
     margin-top: 4px;
-    padding-inline: 18px;
+    color: rgba(244, 239, 228, 0.85);
+    font-size: clamp(16px, 4.5vw, 22px);
+    line-height: 1.25;
+    opacity: 0.85;
+    text-align: center;
+  }
+
+  .price-box .urgency-banner.compact {
+    order: 4;
+    width: 100%;
+    padding: 12px 10px;
+    justify-items: center;
+    margin-top: 4px;
   }
 
   .price-box .microcopy,
@@ -3532,15 +3575,35 @@ details p {
     overflow-wrap: anywhere;
   }
 
-  .price-box .urgency-banner.compact {
-    width: 100%;
-    padding: 12px 10px;
-    justify-items: center;
+  .price-box .microcopy {
+    order: 5;
+    width: min(100%, 320px);
+    margin: 10px auto 0;
+    justify-self: center;
+    color: rgba(239, 232, 217, 0.8);
+    font-size: clamp(14px, 4vw, 18px);
+    line-height: 1.4;
+    text-align: center;
   }
 
-  .price-box .microcopy {
-    justify-self: center;
-    line-height: 1.45;
+  .price-box .btn.full {
+    order: 6;
+    width: 100%;
+    max-width: 320px;
+    min-width: 0;
+    min-height: 64px;
+    margin: 18px auto 0;
+    padding: 18px 24px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #031107;
+    font-size: clamp(20px, 5vw, 26px);
+    font-weight: 900;
+    letter-spacing: 0.5px;
+    box-shadow: 0 0 24px rgba(40, 255, 120, 0.25), 0 18px 42px rgba(217, 164, 65, 0.16);
   }
 
   .producer-card {
@@ -3609,7 +3672,7 @@ details p {
   }
 
   .price-box {
-    padding: 22px 10px;
+    padding: 22px 10px 16px;
   }
 
   .offer-card {
@@ -3622,12 +3685,13 @@ details p {
   }
 
   .price-box .btn.full {
+    max-width: 300px;
     padding-inline: 14px;
-    font-size: 0.86rem;
+    font-size: clamp(18px, 5vw, 22px);
   }
 
   .price-box .microcopy {
-    font-size: 0.86rem;
+    max-width: 280px;
   }
 }
 
