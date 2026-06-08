@@ -5,16 +5,36 @@ const CONFIG = {
   supportUrl: "https://wa.me/message/32R7UJIK7H4HB1",
 };
 
+const PRODUCT_PIXEL_DATA = {
+  content_name: "Cofre Império Digital",
+  content_category: "Produto Digital",
+  value: 47.9,
+  currency: "BRL"
+};
+
+const WHATSAPP_PIXEL_DATA = {
+  content_name: "Cofre Império Digital",
+  content_category: "Atendimento WhatsApp"
+};
+
+const trackMetaEvent = (eventName, params, logMessage) => {
+  if (typeof window.fbq !== "function") return;
+
+  window.fbq("track", eventName, params);
+  console.info(logMessage);
+};
+
 document.querySelectorAll("[data-checkout-link]").forEach((link) => {
   link.href = CONFIG.checkoutUrl;
+  if (link.dataset.pixelCheckoutBound === "true") return;
+
+  link.dataset.pixelCheckoutBound = "true";
   link.addEventListener("click", () => {
-    if (typeof window.fbq === "function") {
-      window.fbq("track", "InitiateCheckout", {
-        content_name: "Cofre Império Digital",
-        value: 47.9,
-        currency: "BRL"
-      });
-    }
+    trackMetaEvent(
+      "InitiateCheckout",
+      PRODUCT_PIXEL_DATA,
+      "Meta Pixel InitiateCheckout disparado"
+    );
   });
 });
 
@@ -25,6 +45,17 @@ document.querySelectorAll("[data-whatsapp-link]").forEach((link) => {
 document.querySelectorAll("[data-support-link]").forEach((link) => {
   link.href = CONFIG.supportUrl;
 });
+
+document
+  .querySelectorAll('a[href^="https://wa.me/"], [data-whatsapp-link], [data-support-link]')
+  .forEach((link) => {
+    if (link.dataset.pixelLeadBound === "true") return;
+
+    link.dataset.pixelLeadBound = "true";
+    link.addEventListener("click", () => {
+      trackMetaEvent("Lead", WHATSAPP_PIXEL_DATA, "Meta Pixel Lead disparado");
+    });
+  });
 
 document.querySelectorAll("[data-vsl-player]").forEach((player) => {
   const video = player.querySelector("video");

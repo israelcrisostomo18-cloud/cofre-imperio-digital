@@ -33,14 +33,25 @@
         s.parentNode.insertBefore(t, s);
       })(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
 
+      window.__hcmPixelEvents = window.__hcmPixelEvents || {};
       fbq("init", "1185761100308219");
-      fbq("track", "PageView");
-      fbq("track", "ViewContent", {
-        content_name: "Cofre Império Digital",
-        content_category: "Landing Page",
-        value: 47.9,
-        currency: "BRL"
-      });
+
+      if (!window.__hcmPixelEvents.pageView) {
+        window.__hcmPixelEvents.pageView = true;
+        fbq("track", "PageView");
+        console.info("Meta Pixel PageView disparado");
+      }
+
+      if (!window.__hcmPixelEvents.viewContent) {
+        window.__hcmPixelEvents.viewContent = true;
+        fbq("track", "ViewContent", {
+          content_name: "Cofre Império Digital",
+          content_category: "Produto Digital",
+          value: 47.9,
+          currency: "BRL"
+        });
+        console.info("Meta Pixel ViewContent disparado");
+      }
     </script>
     <noscript>
       <img
