@@ -173,3 +173,86 @@ if (cursorFollower && canUseCustomCursor) {
 
   moveFollower();
 }
+
+const activityMessages = [
+  "Uma pessoa acabou de acessar esta oferta.",
+  "Novo visitante visualizando a página.",
+  "Alguém acabou de clicar em ver detalhes.",
+  "Oferta visualizada há poucos minutos.",
+  "Produto em alta agora.",
+  "Página de pagamento acessada recentemente.",
+  "Uma pessoa está analisando esta oferta.",
+  "Novo acesso registrado na página.",
+  "Visitante interessado visualizando os benefícios.",
+  "Alguém acabou de clicar no botão principal.",
+  "Mais uma pessoa entrou na página agora.",
+  "Oferta sendo acessada neste momento.",
+  "Uma pessoa está vendo os detalhes do produto.",
+  "Novo visitante navegando pela oferta.",
+  "Página movimentada nos últimos minutos."
+];
+
+const topbarMessages = [
+  "Oferta sendo acessada agora",
+  "Visitantes visualizando esta página",
+  "Movimento recente nesta oferta",
+  "Pessoas analisando os detalhes"
+];
+
+const activityIcons = ["◉", "⚡", "◌", "⌁"];
+const randomBetween = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
+
+const activityRegion = document.querySelector(".activity-toast-region");
+const topbarText = document.querySelector("[data-activity-topbar-text]");
+
+if (topbarText) {
+  let topbarIndex = 0;
+  setInterval(() => {
+    topbarIndex = (topbarIndex + 1) % topbarMessages.length;
+    topbarText.textContent = topbarMessages[topbarIndex];
+  }, 7000);
+}
+
+if (activityRegion) {
+  let lastMessageIndex = -1;
+
+  const pickMessage = () => {
+    let nextIndex = randomBetween(0, activityMessages.length - 1);
+
+    if (activityMessages.length > 1) {
+      while (nextIndex === lastMessageIndex) {
+        nextIndex = randomBetween(0, activityMessages.length - 1);
+      }
+    }
+
+    lastMessageIndex = nextIndex;
+    return activityMessages[nextIndex];
+  };
+
+  const showActivityToast = () => {
+    const toast = document.createElement("div");
+    const visibleFor = randomBetween(4000, 6000);
+    const icon = activityIcons[randomBetween(0, activityIcons.length - 1)];
+
+    toast.className = "activity-toast";
+    toast.innerHTML = `
+      <span class="activity-toast-icon" aria-hidden="true">${icon}</span>
+      <span>
+        <strong>${pickMessage()}</strong>
+        <small>Atividade recente da página</small>
+      </span>
+    `;
+
+    activityRegion.replaceChildren(toast);
+    requestAnimationFrame(() => toast.classList.add("is-visible"));
+
+    window.setTimeout(() => {
+      toast.classList.add("is-leaving");
+      window.setTimeout(() => toast.remove(), 320);
+    }, visibleFor);
+
+    window.setTimeout(showActivityToast, visibleFor + randomBetween(6000, 8000));
+  };
+
+  window.setTimeout(showActivityToast, randomBetween(2500, 4500));
+}

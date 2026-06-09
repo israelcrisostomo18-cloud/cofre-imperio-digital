@@ -72,6 +72,10 @@
   </head>
   <body>
     <div class="cursor-follower" aria-hidden="true"></div>
+    <div class="activity-topbar" role="status" aria-live="polite">
+      <span class="activity-topbar-icon" aria-hidden="true">◉</span>
+      <span data-activity-topbar-text>Oferta sendo acessada agora</span>
+    </div>
     <header class="site-header">
       <a class="brand" href="#top" aria-label="Heavy Crown Money">
         <span class="brand-mark" aria-hidden="true">
@@ -642,6 +646,7 @@
       </div>
     </footer>
 
+    <div class="activity-toast-region" aria-live="polite" aria-atomic="true"></div>
     <script src="script.js"></script>
   </body>
 </html>
