@@ -4155,3 +4155,264 @@ summary,
     text-align: center;
   }
 }
+
+/* Correção final de contraste para o tema branco/dourado */
+:root {
+  --bg: #ffffff;
+  --bg-soft: #f8f5ef;
+  --panel: #ffffff;
+  --panel-2: #f8f5ef;
+  --text: #111111;
+  --muted: #333333;
+  --muted-2: #555555;
+  --green: #8a6508;
+  --green-2: #c89b2c;
+  --gold: #c89b2c;
+  --gold-2: #8a6508;
+  --line: rgba(17, 17, 17, 0.14);
+}
+
+body {
+  color: #111111;
+}
+
+main,
+.vsl-section,
+.hero,
+.product,
+.cofre-showcase,
+.included,
+.producer-callout,
+#bonus,
+.access,
+.offer,
+.guarantee,
+.faq,
+.final,
+.site-footer {
+  color: #111111;
+}
+
+body,
+main,
+section,
+article,
+div,
+p,
+span,
+strong,
+small,
+a,
+button,
+summary,
+details {
+  text-shadow: none;
+}
+
+h1,
+h2,
+h3,
+summary,
+.hero-copy h1,
+.vsl-copy h1,
+.section-heading h2,
+.offer-copy h2,
+.final h2,
+.producer-copy h2,
+.student-proof-heading h3,
+.price-box .installment-price,
+.promo-price strong,
+.price {
+  color: #111111;
+}
+
+p,
+small,
+details p,
+.hero-subtitle,
+.vsl-copy p,
+.vsl-promise p,
+.section-heading p,
+.section-copy p,
+.offer-copy p,
+.student-proof-heading p,
+.student-proof-footer p,
+.guarantee p,
+.final p,
+.microcopy,
+.producer-safe,
+.cofre-showcase-note,
+.content-preview span,
+.included-card p,
+.bonus-card p,
+.step-card p,
+.cofre-showcase-card p {
+  color: #333333;
+}
+
+.section-kicker,
+.eyebrow,
+.hero .eyebrow,
+.promo-label,
+.content-icon,
+.bonus-card > span,
+.step-card span,
+.flow-crown,
+.metric-strip strong,
+.visual-points span {
+  color: #8a6508;
+}
+
+.btn-primary,
+.header-cta,
+.btn-whatsapp,
+.price-box .btn.full {
+  color: #111111;
+  border-color: rgba(138, 101, 8, 0.34);
+  background: linear-gradient(135deg, #f3d67c 0%, #c89b2c 58%, #8a6508 100%);
+  box-shadow: 0 18px 46px rgba(138, 101, 8, 0.24), 0 8px 20px rgba(17, 17, 17, 0.08);
+}
+
+.btn-primary:hover,
+.btn-whatsapp:hover,
+.price-box .btn.full:hover {
+  box-shadow: 0 22px 62px rgba(138, 101, 8, 0.3), 0 0 0 1px rgba(138, 101, 8, 0.22);
+}
+
+.promo-price strong,
+.price,
+.price-box .installment-price {
+  color: #8a6508;
+}
+
+.installment-price span,
+.price-box .installment-price span {
+  color: #111111;
+}
+
+.promo-price .old-price,
+.from-price,
+.from-price s,
+.promo-price small,
+.installment,
+.price-box .installment {
+  color: #333333;
+  text-decoration-color: rgba(17, 17, 17, 0.68);
+}
+
+.vsl-player-card,
+.vsl-promise,
+.promo-price,
+.content-preview,
+.cofre-showcase-card,
+.student-proof,
+.student-proof-card,
+.included-card,
+.bonus-card,
+.step-card,
+.producer-card,
+.availability-card,
+.access-visual,
+.cofre-flow-art,
+.offer-card,
+.price-box,
+.guarantee .narrow,
+.faq-list details,
+.final .container,
+.fit-panel {
+  color: #111111;
+  border-color: rgba(200, 155, 44, 0.28);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(248, 245, 239, 0.96)),
+    #ffffff;
+}
+
+.vsl-promise strong,
+.content-preview strong,
+.flow-core strong,
+.availability-head strong,
+.value-stack strong,
+.cofre-showcase-card h3,
+.included-card h3,
+.bonus-card h3,
+.step-card h3,
+.producer-main,
+.footer-grid strong {
+  color: #111111;
+}
+
+.urgency-banner,
+.urgency-banner.compact,
+.urgency-banner.center {
+  color: #3b2b04;
+  border-color: rgba(200, 155, 44, 0.38);
+  background:
+    radial-gradient(circle at 12% 0%, rgba(200, 155, 44, 0.2), transparent 12rem),
+    linear-gradient(135deg, #fff9e9, #f8f5ef);
+}
+
+.urgency-banner strong {
+  color: #3b2b04;
+}
+
+.urgency-banner span {
+  color: #333333;
+}
+
+.badge-row span,
+.benefit-grid span,
+.visual-points span,
+.value-stack span,
+.metric-strip,
+.flow-module,
+.flow-core {
+  color: #111111;
+  border-color: rgba(200, 155, 44, 0.28);
+  background: rgba(255, 255, 255, 0.86);
+}
+
+.cofre-showcase-card div,
+.content-preview div {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.96) 68%, #f8f5ef 100%);
+}
+
+.site-header,
+.site-footer {
+  color: #111111;
+  background: rgba(255, 255, 255, 0.94);
+}
+
+.nav-links,
+.site-footer p,
+.footer-links {
+  color: #333333;
+}
+
+.nav-links a:hover,
+.footer-links a:hover {
+  color: #8a6508;
+}
+
+.vsl-play {
+  color: #ffffff;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.16), rgba(0, 0, 0, 0.55)),
+    linear-gradient(180deg, transparent, rgba(17, 17, 17, 0.48));
+}
+
+@media (max-width: 640px) {
+  h1,
+  h2,
+  h3,
+  .hero-copy h1,
+  .vsl-copy h1 {
+    color: #111111;
+  }
+
+  p,
+  .hero-subtitle,
+  .vsl-copy p,
+  .microcopy {
+    color: #333333;
+  }
+}
