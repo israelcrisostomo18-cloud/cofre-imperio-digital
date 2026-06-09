@@ -8,6 +8,7 @@ await mkdir("dist/assets/optimized", { recursive: true });
 const html = await readFile("index.html", "utf8");
 const css = await readFile("styles.css", "utf8");
 const js = await readFile("script.js", "utf8");
+const socialProofJs = await readFile("social-proof.js", "utf8");
 
 await writeFile(
   "dist/index.html",
@@ -26,6 +27,7 @@ await writeFile(
     .trim()
 );
 await writeFile("dist/script.js", js.trim());
+await writeFile("dist/social-proof.js", socialProofJs.trim());
 
 await cp("assets/optimized", "dist/assets/optimized", { recursive: true });
 for (const asset of [
