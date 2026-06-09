@@ -3677,6 +3677,333 @@ details p {
   }
 }
 
+/* Tema premium branco e dourado */
+:root {
+  --bg: #ffffff;
+  --bg-soft: #f8f5ef;
+  --panel: #ffffff;
+  --panel-2: #f8f5ef;
+  --text: #1a1a1a;
+  --muted: #555555;
+  --muted-2: #74706a;
+  --green: #b8860b;
+  --green-2: #d4af37;
+  --gold: #d4af37;
+  --gold-2: #b8860b;
+  --line: rgba(26, 26, 26, 0.12);
+  --shadow: 0 24px 70px rgba(45, 34, 10, 0.12);
+}
+
+html,
+body {
+  background: #ffffff;
+}
+
+body {
+  color: var(--text);
+  background:
+    radial-gradient(circle at 12% 4%, rgba(212, 175, 55, 0.13), transparent 26rem),
+    radial-gradient(circle at 90% 12%, rgba(184, 134, 11, 0.1), transparent 24rem),
+    linear-gradient(180deg, #ffffff 0%, #f8f5ef 50%, #ffffff 100%);
+}
+
+p,
+.nav-links,
+.microcopy,
+.producer-safe,
+.student-proof-footer small,
+.cofre-showcase-note,
+.content-preview span {
+  color: var(--muted);
+}
+
+h1,
+h2,
+h3,
+summary,
+.brand,
+.brand-text,
+.section-copy strong,
+.value-stack strong,
+.producer-main,
+.footer-grid strong {
+  color: #1a1a1a;
+}
+
+.site-header {
+  border-color: rgba(212, 175, 55, 0.28);
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: 0 18px 54px rgba(45, 34, 10, 0.1);
+}
+
+.brand-mark,
+.brand-mark.small {
+  color: #1a1a1a;
+  border-color: rgba(212, 175, 55, 0.48);
+  background: linear-gradient(145deg, #ffffff, #f3ead8);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.72), 0 12px 28px rgba(212, 175, 55, 0.16);
+}
+
+.nav-links a:hover,
+.footer-links a:hover {
+  color: var(--gold-2);
+}
+
+.vsl-section,
+.hero,
+.product,
+.cofre-showcase,
+.included,
+.producer-callout,
+#bonus,
+.access,
+.offer,
+.guarantee,
+.faq,
+.final {
+  color: #1a1a1a;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.12), transparent 20rem),
+    linear-gradient(180deg, #ffffff 0%, #f8f5ef 100%);
+  border-color: rgba(212, 175, 55, 0.16);
+}
+
+.vsl-section::before,
+.vsl-section::after,
+.hero::before,
+.hero::after,
+.offer::before,
+.final::before,
+.producer-callout::before,
+.producer-callout::after {
+  opacity: 0.18;
+}
+
+.section-kicker,
+.eyebrow,
+.hero .eyebrow,
+.promo-label,
+.content-icon,
+.bonus-card > span,
+.step-card span,
+.flow-crown {
+  color: #8a6507;
+  border-color: rgba(212, 175, 55, 0.28);
+  background: rgba(212, 175, 55, 0.12);
+}
+
+.vsl-copy p,
+.hero-subtitle,
+.section-heading p,
+.section-copy p,
+.offer-copy p,
+.final p,
+.guarantee p,
+.faq-list p,
+.producer-safe,
+.student-proof-heading p,
+.student-proof-footer p {
+  color: #555555;
+}
+
+.btn-primary,
+.header-cta,
+.btn-whatsapp {
+  color: #1a1a1a;
+  border-color: rgba(184, 134, 11, 0.28);
+  background: linear-gradient(135deg, #f7df91 0%, #d4af37 52%, #b8860b 100%);
+  box-shadow: 0 18px 44px rgba(184, 134, 11, 0.24), 0 8px 22px rgba(26, 26, 26, 0.08);
+}
+
+.btn-primary:hover,
+.btn-whatsapp:hover {
+  box-shadow: 0 22px 62px rgba(184, 134, 11, 0.3), 0 0 0 1px rgba(184, 134, 11, 0.22);
+}
+
+.btn-ghost {
+  color: #1a1a1a;
+  border-color: rgba(212, 175, 55, 0.24);
+  background: rgba(212, 175, 55, 0.08);
+}
+
+.vsl-player-card,
+.vsl-promise,
+.promo-price,
+.product-stack,
+.product-hero-frame,
+.authority-hero-frame,
+.content-preview,
+.cofre-showcase-card,
+.student-proof,
+.student-proof-card,
+.included-card,
+.bonus-card,
+.step-card,
+.producer-card,
+.availability-card,
+.access-visual,
+.cofre-flow-art,
+.offer-card,
+.price-box,
+.guarantee .narrow,
+.faq-list details,
+.final .container,
+.fit-panel {
+  color: #1a1a1a;
+  border-color: rgba(212, 175, 55, 0.22);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(248, 245, 239, 0.92)),
+    #ffffff;
+  box-shadow: 0 22px 58px rgba(45, 34, 10, 0.1), inset 0 0 0 1px rgba(255, 255, 255, 0.7);
+}
+
+.price-box::before,
+.price-box::after,
+.included-card::before,
+.included-card::after,
+.availability-card::after,
+.cofre-flow-art::before,
+.cofre-flow-art::after {
+  opacity: 0.16;
+}
+
+.price-box::before {
+  background:
+    radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.18), transparent 14rem),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(248, 245, 239, 0.82));
+}
+
+.promo-price,
+.price-box {
+  border-color: rgba(212, 175, 55, 0.38);
+  background:
+    radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.16), transparent 13rem),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(248, 245, 239, 0.94));
+}
+
+.promo-price strong,
+.price,
+.installment-price,
+.price-box .installment-price {
+  color: #b8860b;
+  text-shadow: none;
+}
+
+.installment-price span,
+.price-box .installment-price span {
+  color: #1a1a1a;
+}
+
+.promo-price .old-price,
+.from-price,
+.from-price s,
+.promo-price small,
+.installment {
+  color: #555555;
+  text-decoration-color: rgba(85, 85, 85, 0.78);
+}
+
+.urgency-banner {
+  color: #4a3603;
+  border-color: rgba(212, 175, 55, 0.34);
+  background:
+    radial-gradient(circle at 10% 0%, rgba(212, 175, 55, 0.18), transparent 12rem),
+    linear-gradient(135deg, rgba(255, 248, 224, 0.98), rgba(248, 245, 239, 0.94));
+  box-shadow: 0 14px 34px rgba(184, 134, 11, 0.12);
+}
+
+.urgency-banner span {
+  color: #6b5b32;
+}
+
+.badge-row span,
+.benefit-grid span,
+.visual-points span,
+.value-stack span,
+.metric-strip,
+.flow-module,
+.flow-core {
+  color: #1a1a1a;
+  border-color: rgba(212, 175, 55, 0.24);
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.value-stack span::before,
+.availability-head .status-dot {
+  background: var(--gold);
+  box-shadow: 0 0 18px rgba(212, 175, 55, 0.28);
+}
+
+.cofre-showcase-card div,
+.content-preview div {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.92) 72%, rgba(248, 245, 239, 0.98));
+}
+
+.cofre-showcase-card h3,
+.cofre-showcase-card p,
+.included-card h3,
+.included-card p,
+.bonus-card h3,
+.bonus-card p,
+.step-card h3,
+.step-card p {
+  color: #1a1a1a;
+  text-shadow: none;
+}
+
+.content-icon {
+  box-shadow: 0 10px 24px rgba(212, 175, 55, 0.12);
+}
+
+.student-proof-card {
+  background: #ffffff;
+}
+
+.faq-list details {
+  background: #ffffff;
+}
+
+.site-footer {
+  color: #1a1a1a;
+  border-top-color: rgba(212, 175, 55, 0.22);
+  background: #f8f5ef;
+}
+
+.site-footer p,
+.footer-links {
+  color: #555555;
+}
+
+.cursor-follower {
+  mix-blend-mode: normal;
+  border-color: rgba(184, 134, 11, 0.6);
+  background: rgba(212, 175, 55, 0.12);
+  box-shadow: 0 0 22px rgba(184, 134, 11, 0.18);
+}
+
+@media (max-width: 860px) {
+  .site-header {
+    background: rgba(255, 255, 255, 0.9);
+  }
+
+  .offer .container {
+    width: min(100%, calc(100vw - 24px));
+  }
+}
+
+@media (max-width: 640px) {
+  .hero,
+  .vsl-section {
+    background:
+      radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.14), transparent 16rem),
+      linear-gradient(180deg, #ffffff 0%, #f8f5ef 100%);
+  }
+
+  .price-box .btn.full {
+    box-shadow: 0 0 24px rgba(184, 134, 11, 0.26), 0 18px 42px rgba(45, 34, 10, 0.1);
+  }
+}
+
 @media (min-width: 1024px) {
   .hero-copy {
     grid-template-columns: minmax(430px, 1fr) minmax(340px, 440px) minmax(280px, 340px);
