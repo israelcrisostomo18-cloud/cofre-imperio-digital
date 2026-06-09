@@ -57,6 +57,49 @@ document
     });
   });
 
+const navToggle = document.querySelector(".nav-toggle");
+const navLinks = document.querySelector(".nav-links");
+
+if (navToggle && navLinks) {
+  const closeMenu = () => {
+    navToggle.classList.remove("is-open");
+    navLinks.classList.remove("is-open");
+    navToggle.setAttribute("aria-expanded", "false");
+    navToggle.setAttribute("aria-label", "Abrir menu");
+  };
+
+  const openMenu = () => {
+    navToggle.classList.add("is-open");
+    navLinks.classList.add("is-open");
+    navToggle.setAttribute("aria-expanded", "true");
+    navToggle.setAttribute("aria-label", "Fechar menu");
+  };
+
+  navToggle.addEventListener("click", () => {
+    if (navLinks.classList.contains("is-open")) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  });
+
+  navLinks.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", closeMenu);
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeMenu();
+    }
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 860) {
+      closeMenu();
+    }
+  });
+}
+
 document.querySelectorAll("[data-vsl-player]").forEach((player) => {
   const video = player.querySelector("video");
   const progressFill = player.querySelector("[data-vsl-progress]");
