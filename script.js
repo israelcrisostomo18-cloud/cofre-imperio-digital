@@ -185,8 +185,10 @@ if (quiz) {
   const resultMessage = quiz.querySelector("[data-quiz-result-message]");
   const resultLink = quiz.querySelector("[data-quiz-result-link]");
   const progressFill = quiz.querySelector("[data-quiz-progress]");
-  const openField = quiz.querySelector("[data-quiz-open-field]");
-  const openNext = quiz.querySelector("[data-quiz-open-next]");
+  const doubtAnswer = quiz.querySelector("[data-quiz-doubt-answer]");
+  const doubtTitle = quiz.querySelector("[data-quiz-doubt-title]");
+  const doubtCopy = quiz.querySelector("[data-quiz-doubt-copy]");
+  const doubtContinue = quiz.querySelector("[data-quiz-doubt-continue]");
   const scores = {
     iniciante: 0,
     tentou: 0,
@@ -217,6 +219,49 @@ if (quiz) {
     }
   };
 
+  const doubtMap = {
+    valor: {
+      title: "Quanto custaria comprar tudo separadamente?",
+      html: `
+        <p>Se você fosse montar tudo sozinho, comprando cada material separado, o custo poderia ficar bem mais alto do que parece.</p>
+        <p>Dentro do Cofre Império Digital estão incluídos materiais como vídeos e cortes, memes, PLRs em vídeo, vídeos lifestyle, curso de finanças, grupos de vendas, cursos no digital e bônus práticos de organização de perfil, escolha de nicho, monetização, plano de execução, ideias de produtos e checklist diário.</p>
+        <p>Veja uma estimativa mais realista:</p>
+        <ul>
+          <li>Pack de vídeos de mentalidade e autoridade: média de R$89 a R$189</li>
+          <li>Cortes e vídeos atualizados para criação de conteúdo: média de R$120 a R$250</li>
+          <li>Biblioteca de memes e conteúdos virais: média de R$39 a R$90</li>
+          <li>Pack de PLRs em vídeo: média de R$250 a R$600</li>
+          <li>Pack de vídeos lifestyle, luxo, rotina, viagens, carros e motivação: média de R$150 a R$350</li>
+          <li>Curso de finanças, organização e receita previsível: média de R$180 a R$500</li>
+          <li>Lista de grupos de vendas separados por nichos: média de R$30 a R$100</li>
+          <li>Cursos no digital e materiais sobre nicho, conteúdo, oferta e posicionamento: média de R$400 a R$1.200</li>
+          <li>Guia prático de bônus com organização de perfil, escolha de nicho, monetização, plano de execução, ideias de produtos e checklist diário: média de R$70 a R$180</li>
+        </ul>
+        <p>Comprando tudo separadamente, uma estimativa conservadora ficaria entre <strong>R$1.300 e R$3.400</strong>.</p>
+        <p>Em versões mais completas, com cursos, packs maiores e materiais premium, esse valor poderia passar de <strong>R$4.000</strong>.</p>
+        <p>O Cofre Império Digital reúne tudo isso em um único acesso, para você não precisar procurar material por material.</p>
+      `
+    },
+    vale: {
+      title: "Vale a pena comprar o Cofre Império Digital?",
+      html: `
+        <p>Sim, vale a pena principalmente para quem quer parar de perder tempo procurando conteúdo solto na internet.</p>
+        <p>O Cofre Império Digital reúne em um só lugar materiais que podem ajudar quem está começando ou tentando destravar no digital: vídeos, cortes, memes, PLRs em vídeo, conteúdos lifestyle, materiais de finanças, grupos de vendas, cursos no digital e bônus práticos para organizar perfil, escolher nicho, criar rotina de postagem e pensar em formas de monetização.</p>
+        <p>Ele não promete resultado garantido, porque isso depende da sua aplicação, consistência, nicho escolhido e oferta. Mas ele entrega uma base de materiais e referências para você começar com mais direção, em vez de tentar montar tudo do zero.</p>
+      `
+    },
+    confianca: {
+      title: "Posso confiar na compra do Cofre Império Digital?",
+      html: `
+        <p>Sim. A compra é feita por uma plataforma segura de pagamento, a Hotmart.</p>
+        <p>Isso significa que o pagamento não é feito diretamente para uma pessoa no WhatsApp ou Pix aleatório. A Hotmart processa a compra e disponibiliza os dados da transação para o comprador.</p>
+        <p>Além disso, se o produto estiver configurado com garantia de 7 dias, você pode solicitar reembolso dentro do prazo informado na página de pagamento. A própria Hotmart informa que o prazo de garantia pode variar conforme a configuração do produtor, e esse prazo aparece no momento da compra.</p>
+        <p>Após solicitar o reembolso, a Hotmart informa que a solicitação pode levar até 7 dias para ser aprovada e liberada ao banco ou à plataforma de pagamento usada na compra.</p>
+        <p>Ou seja: você compra por uma plataforma conhecida, com processo de pagamento e reembolso, sem depender de transferência direta para desconhecidos.</p>
+      `
+    }
+  };
+
   const profileOrder = ["iniciante", "tentou", "conteudo", "crescimento"];
   let currentStep = 0;
 
@@ -242,6 +287,7 @@ if (quiz) {
     const content = resultMap[winningProfile];
 
     steps.forEach((step) => step.classList.remove("is-active"));
+    if (doubtAnswer) doubtAnswer.classList.remove("is-active");
     currentStep = steps.length;
     updateProgress();
 
@@ -270,17 +316,23 @@ if (quiz) {
 
   quiz.addEventListener("click", (event) => {
     registerAnswer(event.target.closest("[data-profile]"));
+
+    const doubtButton = event.target.closest("[data-quiz-doubt]");
+    if (!doubtButton || !doubtButton.closest("[data-quiz-step].is-active")) return;
+
+    const answer = doubtMap[doubtButton.dataset.quizDoubt];
+    if (!answer) return;
+
+    steps.forEach((step) => step.classList.remove("is-active"));
+    if (doubtTitle) doubtTitle.textContent = answer.title;
+    if (doubtCopy) doubtCopy.innerHTML = answer.html;
+    if (doubtAnswer) doubtAnswer.classList.add("is-active");
+    currentStep = steps.length;
+    updateProgress();
   });
 
-  if (openField && openNext) {
-    openField.addEventListener("input", () => {
-      openNext.disabled = openField.value.trim().length < 3;
-    });
-
-    openNext.addEventListener("click", () => {
-      if (openField.value.trim().length < 3) return;
-      showResult();
-    });
+  if (doubtContinue) {
+    doubtContinue.addEventListener("click", showResult);
   }
 
   if (resultLink) {

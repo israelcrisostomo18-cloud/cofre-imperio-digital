@@ -585,14 +585,21 @@
               </div>
             </div>
 
-            <div class="quiz-step quiz-open-step" data-quiz-step>
+            <div class="quiz-step quiz-doubt-step" data-quiz-step>
               <small>Pergunta 6 de 6</small>
-              <h3>Em poucas palavras, o que você mais quer resolver agora?</h3>
-              <label class="quiz-open-field">
-                <span>Escreva sua resposta para finalizar o diagnóstico.</span>
-                <textarea data-quiz-open-field rows="4" placeholder="Ex: quero saber o que postar, organizar meus conteúdos ou vender com mais clareza"></textarea>
-              </label>
-              <button class="btn btn-primary quiz-next" type="button" data-quiz-open-next disabled>Finalizar meu diagnóstico</button>
+              <h3>Qual dúvida você gostaria de tirar antes de acessar o Cofre Império Digital?</h3>
+              <div class="quiz-options">
+                <button type="button" data-quiz-doubt="valor">Quanto custaria comprar tudo separadamente?</button>
+                <button type="button" data-quiz-doubt="vale">Vale a pena comprar o Cofre Império Digital?</button>
+                <button type="button" data-quiz-doubt="confianca">Posso confiar na compra do Cofre Império Digital?</button>
+              </div>
+            </div>
+
+            <div class="quiz-doubt-answer" data-quiz-doubt-answer aria-live="polite">
+              <span class="quiz-result-badge">Resposta rápida</span>
+              <h3 data-quiz-doubt-title></h3>
+              <div class="quiz-doubt-copy" data-quiz-doubt-copy></div>
+              <button class="btn btn-primary quiz-next" type="button" data-quiz-doubt-continue>Continuar</button>
             </div>
 
             <div class="quiz-result" data-quiz-result aria-live="polite">
