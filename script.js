@@ -153,6 +153,113 @@ document.querySelectorAll("[data-vsl-player]").forEach((player) => {
   }
 });
 
+const quiz = document.querySelector("[data-quiz]");
+
+if (quiz) {
+  const steps = Array.from(quiz.querySelectorAll("[data-quiz-step]"));
+  const result = quiz.querySelector("[data-quiz-result]");
+  const resultTitle = quiz.querySelector("[data-quiz-result-title]");
+  const resultMessage = quiz.querySelector("[data-quiz-result-message]");
+  const resultLink = quiz.querySelector("[data-quiz-result-link]");
+  const progressFill = quiz.querySelector("[data-quiz-progress]");
+  const scores = {
+    iniciante: 0,
+    tentou: 0,
+    conteudo: 0,
+    crescimento: 0
+  };
+
+  const resultMap = {
+    iniciante: {
+      title: "Perfil identificado: Iniciante buscando direção",
+      message:
+        "Pelo que você respondeu, seu maior bloqueio hoje parece ser falta de clareza sobre por onde começar. O Cofre Império Digital pode te ajudar mostrando conteúdos, ideias, criativos e materiais para você não precisar começar do zero."
+    },
+    tentou: {
+      title: "Perfil identificado: Pessoa que já tentou, mas ainda não encontrou o caminho certo",
+      message:
+        "Pelo que você respondeu, você já tentou ganhar dinheiro na internet, mas talvez tenha faltado estrutura, conteúdo pronto e uma direção mais simples. O Cofre Império Digital pode te ajudar a organizar melhor esse começo."
+    },
+    conteudo: {
+      title: "Perfil identificado: Criador travado por falta de conteúdo",
+      message:
+        "Pelo que você respondeu, seu maior desafio parece ser ter ideias, criativos e materiais prontos para usar. O Cofre Império Digital reúne conteúdos e estratégias que podem facilitar esse processo."
+    },
+    crescimento: {
+      title: "Perfil identificado: Pessoa buscando crescimento",
+      message:
+        "Pelo que você respondeu, você não está apenas começando. Você quer melhorar seus resultados e ter mais materiais, ideias e estratégias para testar. O Cofre Império Digital pode ser uma boa opção para expandir suas possibilidades."
+    }
+  };
+
+  const profileOrder = ["iniciante", "tentou", "conteudo", "crescimento"];
+  let currentStep = 0;
+
+  const updateProgress = () => {
+    if (!progressFill) return;
+    const percent = Math.min((currentStep / steps.length) * 100, 100);
+    progressFill.style.width = `${percent}%`;
+  };
+
+  const showStep = (index) => {
+    steps.forEach((step, stepIndex) => {
+      step.classList.toggle("is-active", stepIndex === index);
+    });
+    currentStep = index;
+    updateProgress();
+  };
+
+  const getWinningProfile = () =>
+    profileOrder.reduce((winner, profile) => (scores[profile] > scores[winner] ? profile : winner), profileOrder[0]);
+
+  const showResult = () => {
+    const winningProfile = getWinningProfile();
+    const content = resultMap[winningProfile];
+
+    steps.forEach((step) => step.classList.remove("is-active"));
+    currentStep = steps.length;
+    updateProgress();
+
+    if (resultTitle) resultTitle.textContent = content.title;
+    if (resultMessage) resultMessage.textContent = content.message;
+    if (resultLink) resultLink.textContent = "Ver meu acesso recomendado";
+    if (result) result.classList.add("is-active");
+  };
+
+  const registerAnswer = (button) => {
+    if (!button || !button.matches("[data-profile]")) return;
+    if (!button.closest("[data-quiz-step].is-active")) return;
+
+    const profile = button.dataset.profile;
+    if (profile && Object.prototype.hasOwnProperty.call(scores, profile)) {
+      scores[profile] += 1;
+    }
+
+    const nextStep = currentStep + 1;
+    if (nextStep < steps.length) {
+      showStep(nextStep);
+    } else {
+      showResult();
+    }
+  };
+
+  quiz.addEventListener("click", (event) => {
+    registerAnswer(event.target.closest("[data-profile]"));
+  });
+
+  if (resultLink) {
+    resultLink.addEventListener("click", (event) => {
+      event.preventDefault();
+      const target = document.querySelector(resultLink.getAttribute("href"));
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    });
+  }
+
+  showStep(0);
+}
+
 const revealItems = document.querySelectorAll(".reveal");
 
 if ("IntersectionObserver" in window) {
