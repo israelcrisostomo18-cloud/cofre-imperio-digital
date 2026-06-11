@@ -24,6 +24,29 @@ const trackMetaEvent = (eventName, params, logMessage) => {
   console.info(logMessage);
 };
 
+const QUIZ_COMPLETED_KEY = "cofreImperioDigitalQuizCompleted";
+
+const unlockLandingPage = () => {
+  document.body.classList.remove("quiz-locked");
+  document.body.classList.add("quiz-completed");
+};
+
+const lockLandingPage = () => {
+  document.body.classList.add("quiz-locked");
+  document.body.classList.remove("quiz-completed");
+  window.scrollTo(0, 0);
+};
+
+try {
+  if (window.localStorage.getItem(QUIZ_COMPLETED_KEY) === "true") {
+    unlockLandingPage();
+  } else {
+    lockLandingPage();
+  }
+} catch (error) {
+  lockLandingPage();
+}
+
 document.querySelectorAll("[data-checkout-link]").forEach((link) => {
   link.href = CONFIG.checkoutUrl;
   if (link.dataset.pixelCheckoutBound === "true") return;
@@ -162,6 +185,8 @@ if (quiz) {
   const resultMessage = quiz.querySelector("[data-quiz-result-message]");
   const resultLink = quiz.querySelector("[data-quiz-result-link]");
   const progressFill = quiz.querySelector("[data-quiz-progress]");
+  const openField = quiz.querySelector("[data-quiz-open-field]");
+  const openNext = quiz.querySelector("[data-quiz-open-next]");
   const scores = {
     iniciante: 0,
     tentou: 0,
@@ -247,9 +272,26 @@ if (quiz) {
     registerAnswer(event.target.closest("[data-profile]"));
   });
 
+  if (openField && openNext) {
+    openField.addEventListener("input", () => {
+      openNext.disabled = openField.value.trim().length < 3;
+    });
+
+    openNext.addEventListener("click", () => {
+      if (openField.value.trim().length < 3) return;
+      showResult();
+    });
+  }
+
   if (resultLink) {
     resultLink.addEventListener("click", (event) => {
       event.preventDefault();
+      try {
+        window.localStorage.setItem(QUIZ_COMPLETED_KEY, "true");
+      } catch (error) {
+        // Se o navegador bloquear localStorage, libera a página apenas nesta sessão.
+      }
+      unlockLandingPage();
       const target = document.querySelector(resultLink.getAttribute("href"));
       if (target) {
         target.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -257,7 +299,9 @@ if (quiz) {
     });
   }
 
-  showStep(0);
+  if (document.body.classList.contains("quiz-locked")) {
+    showStep(0);
+  }
 }
 
 const revealItems = document.querySelectorAll(".reveal");

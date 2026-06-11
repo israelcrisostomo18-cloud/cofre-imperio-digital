@@ -70,7 +70,7 @@
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
+  <body class="quiz-locked">
     <div class="cursor-follower" aria-hidden="true"></div>
     <div class="activity-topbar" role="status" aria-live="polite">
       <span class="activity-topbar-icon" aria-hidden="true">◉</span>
@@ -531,7 +531,7 @@
             </div>
 
             <div class="quiz-step is-active" data-quiz-step>
-              <small>Pergunta 1 de 5</small>
+              <small>Pergunta 1 de 6</small>
               <h3>Qual é o seu maior bloqueio hoje no digital?</h3>
               <div class="quiz-options">
                 <button type="button" data-profile="iniciante">Não sei por onde começar</button>
@@ -542,7 +542,7 @@
             </div>
 
             <div class="quiz-step" data-quiz-step>
-              <small>Pergunta 2 de 5</small>
+              <small>Pergunta 2 de 6</small>
               <h3>Quando você pensa em criar conteúdo, o que mais trava?</h3>
               <div class="quiz-options">
                 <button type="button" data-profile="iniciante">Falta clareza do primeiro passo</button>
@@ -553,7 +553,7 @@
             </div>
 
             <div class="quiz-step" data-quiz-step>
-              <small>Pergunta 3 de 5</small>
+              <small>Pergunta 3 de 6</small>
               <h3>Qual frase combina mais com você agora?</h3>
               <div class="quiz-options">
                 <button type="button" data-profile="iniciante">Quero uma direção simples para começar</button>
@@ -564,7 +564,7 @@
             </div>
 
             <div class="quiz-step" data-quiz-step>
-              <small>Pergunta 4 de 5</small>
+              <small>Pergunta 4 de 6</small>
               <h3>O que você mais gostaria de ter em mãos?</h3>
               <div class="quiz-options">
                 <button type="button" data-profile="iniciante">Um caminho organizado para sair do zero</button>
@@ -575,7 +575,7 @@
             </div>
 
             <div class="quiz-step" data-quiz-step>
-              <small>Pergunta 5 de 5</small>
+              <small>Pergunta 5 de 6</small>
               <h3>Qual objetivo você quer priorizar?</h3>
               <div class="quiz-options">
                 <button type="button" data-profile="iniciante">Entender por onde começar</button>
@@ -583,6 +583,16 @@
                 <button type="button" data-profile="conteudo">Ter material para divulgar com mais praticidade</button>
                 <button type="button" data-profile="crescimento">Aumentar o volume de testes e oportunidades</button>
               </div>
+            </div>
+
+            <div class="quiz-step quiz-open-step" data-quiz-step>
+              <small>Pergunta 6 de 6</small>
+              <h3>Em poucas palavras, o que você mais quer resolver agora?</h3>
+              <label class="quiz-open-field">
+                <span>Escreva sua resposta para finalizar o diagnóstico.</span>
+                <textarea data-quiz-open-field rows="4" placeholder="Ex: quero saber o que postar, organizar meus conteúdos ou vender com mais clareza"></textarea>
+              </label>
+              <button class="btn btn-primary quiz-next" type="button" data-quiz-open-next disabled>Finalizar meu diagnóstico</button>
             </div>
 
             <div class="quiz-result" data-quiz-result aria-live="polite">
