@@ -4916,6 +4916,13 @@ details p,
   line-height: 1.08;
 }
 
+.quiz-helper {
+  max-width: 640px;
+  color: #555555;
+  font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+  line-height: 1.55;
+}
+
 .quiz-options {
   display: grid;
   gap: 12px;
