@@ -358,6 +358,79 @@ if (quiz) {
   updateProgress();
 }
 
+const includedProducts = [
+  {
+    name: "Pack de Vídeos — Homens de Poder",
+    description: "Vídeos de autoridade e impacto.",
+    value: "R$27,00",
+    image: "/images/produtos/homens-de-poder.png"
+  },
+  {
+    name: "Vídeos Atualizados — Autoridade e Comunicação",
+    description: "Conteúdos para comunicação forte.",
+    value: "R$37,00",
+    image: "/images/produtos/autoridade-comunicacao.png"
+  },
+  {
+    name: "Memes e Conteúdos Virais",
+    description: "Conteúdos rápidos para engajar.",
+    value: "R$17,00",
+    image: "/images/produtos/memes-conteudos-virais.png"
+  },
+  {
+    name: "Pack PLRs em Vídeo",
+    description: "Base para ofertas digitais.",
+    value: "R$47,00",
+    image: "/images/produtos/plrs-em-video.png"
+  },
+  {
+    name: "Pack de Vídeos Lifestyle",
+    description: "Vídeos com estética premium.",
+    value: "R$37,00",
+    image: "/images/produtos/videos-lifestyle.png"
+  },
+  {
+    name: "Curso de Finanças Sérias — Receita Previsível",
+    description: "Organização e visão financeira.",
+    value: "R$47,00",
+    image: "/images/produtos/financas-receita-previsivel.png"
+  },
+  {
+    name: "Pack Grupos de Vendas — Vários Nichos",
+    description: "Grupos para divulgação e prospecção.",
+    value: "R$27,00",
+    image: "/images/produtos/grupos-de-vendas.png"
+  },
+  {
+    name: "Cursos no Digital — Grandes Treinamentos",
+    description: "Cursos e conteúdos de mercado.",
+    value: "R$87,00",
+    image: "/images/produtos/cursos-no-digital.png"
+  }
+];
+
+const productsGrid = document.querySelector("[data-products-grid]");
+
+if (productsGrid) {
+  productsGrid.innerHTML = includedProducts
+    .map(
+      (product) => `
+        <article class="product-module-card reveal">
+          <a class="product-module-media" href="#oferta" aria-label="Ver ${product.name} no Cofre">
+            <img src="${product.image}" alt="${product.name}" width="560" height="560" loading="lazy" decoding="async" />
+          </a>
+          <div class="product-module-body">
+            <h3>${product.name}</h3>
+            <p>${product.description}</p>
+            <span class="product-module-value">Valor estimado: <strong>${product.value}</strong></span>
+            <a class="product-module-link" href="#oferta">Ver no Cofre</a>
+          </div>
+        </article>
+      `
+    )
+    .join("");
+}
+
 const revealItems = document.querySelectorAll(".reveal");
 
 if ("IntersectionObserver" in window) {
