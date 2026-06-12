@@ -480,105 +480,177 @@
       <section id="quiz" class="quiz-section section-pad" aria-label="Quiz de perfil digital">
         <div class="container quiz-shell reveal">
           <div class="quiz-intro">
-            <span class="section-kicker">Diagnóstico rápido</span>
-            <h2>Descubra qual acesso faz mais sentido para o seu momento.</h2>
-            <p>Responda algumas perguntas rápidas e veja uma recomendação personalizada dentro do Cofre Império Digital.</p>
+            <span class="section-kicker">Diagnóstico profissional</span>
+            <h2>Descubra qual estrutura combina mais com seu momento no digital</h2>
+            <p>Responda o diagnóstico rápido e veja qual tipo de acervo pode te ajudar a criar mais conteúdo, testar mais ofertas, aprender novas habilidades e executar com mais clareza.</p>
           </div>
 
           <div class="quiz-card" data-quiz>
             <div class="quiz-progress" aria-hidden="true">
               <span data-quiz-progress></span>
             </div>
+            <p class="quiz-progress-label" data-quiz-progress-label>Diagnóstico profissional</p>
 
-            <div class="quiz-step is-active" data-quiz-step>
-              <small>Pergunta 1 de 7</small>
-              <h3>Qual é o seu maior bloqueio hoje no digital?</h3>
+            <div class="quiz-start is-active" data-quiz-start-screen>
+              <span class="quiz-result-badge">Cofre Império Digital</span>
+              <h3>Descubra qual estrutura combina mais com seu momento no digital</h3>
+              <p>O objetivo deste diagnóstico é entender seu momento, seu principal bloqueio e o tipo de material que pode te ajudar a executar com mais clareza.</p>
+              <button class="btn btn-primary quiz-next" type="button" data-quiz-start>Começar diagnóstico</button>
+            </div>
+
+            <div class="quiz-step" data-quiz-step>
+              <small>Etapa 1 de 12 — Iniciando diagnóstico</small>
+              <h3>Antes de começar, qual é o seu nome?</h3>
+              <label class="quiz-name-field">
+                <span>Digite seu nome aqui</span>
+                <input type="text" data-quiz-name-input autocomplete="given-name" placeholder="Seu nome" />
+              </label>
+              <button class="btn btn-primary quiz-next" type="button" data-quiz-name-next disabled>Continuar</button>
+            </div>
+
+            <div class="quiz-step" data-quiz-step>
+              <small>Etapa 2 de 12 — Entendendo seu momento</small>
+              <h3 data-question-template="{nome}, qual é seu momento hoje no digital?">{nome}, qual é seu momento hoje no digital?</h3>
               <div class="quiz-options">
-                <button type="button" data-profile="iniciante">Não sei por onde começar</button>
-                <button type="button" data-profile="tentou">Já tentei e não tive resultado</button>
-                <button type="button" data-profile="conteudo">Não tenho conteúdo pronto para postar</button>
-                <button type="button" data-profile="crescimento">Quero vender mais e escalar</button>
+                <button type="button" data-profile="A">Ainda não comecei, mas quero começar com direção</button>
+                <button type="button" data-profile="B">Já tentei vender, mas ainda não tive resultado</button>
+                <button type="button" data-profile="C">Já vendi alguma coisa, mas quero vender mais</button>
+                <button type="button" data-profile="D">Já crio conteúdo, mas falta constância e organização</button>
+                <button type="button" data-profile="E">Já tenho alguma estrutura, mas preciso de mais materiais para testar</button>
               </div>
             </div>
 
             <div class="quiz-step" data-quiz-step>
-              <small>Pergunta 2 de 7</small>
-              <h3>Quando você pensa em criar conteúdo, o que mais trava?</h3>
+              <small>Etapa 3 de 12 — Identificando seu caminho</small>
+              <h3 data-question-template="{nome}, de que forma você mais quer ganhar dinheiro no digital?">{nome}, de que forma você mais quer ganhar dinheiro no digital?</h3>
               <div class="quiz-options">
-                <button type="button" data-profile="iniciante">Falta clareza do primeiro passo</button>
-                <button type="button" data-profile="tentou">Não sei o que fiz errado antes</button>
-                <button type="button" data-profile="conteudo">Faltam ideias, criativos e materiais</button>
-                <button type="button" data-profile="crescimento">Quero testar mais formatos para crescer</button>
+                <button type="button" data-profile="A">Como afiliado, divulgando produtos de outras pessoas</button>
+                <button type="button" data-profile="B">Como produtor, criando ou vendendo meu próprio produto digital</button>
+                <button type="button" data-profile="C">Com dropshipping ou produtos físicos</button>
+                <button type="button" data-profile="D">Criando conteúdo e monetizando minha audiência</button>
+                <button type="button" data-profile="E">Ainda não sei, quero descobrir qual caminho combina comigo</button>
               </div>
             </div>
 
             <div class="quiz-step" data-quiz-step>
-              <small>Pergunta 3 de 7</small>
-              <h3>Qual frase combina mais com você agora?</h3>
+              <small>Etapa 4 de 12 — Mapeando seus bloqueios</small>
+              <h3 data-question-template="{nome}, hoje o que mais limita sua evolução?">{nome}, hoje o que mais limita sua evolução?</h3>
               <div class="quiz-options">
-                <button type="button" data-profile="iniciante">Quero uma direção simples para começar</button>
-                <button type="button" data-profile="tentou">Já comecei algumas vezes e parei</button>
-                <button type="button" data-profile="conteudo">Eu perco tempo procurando conteúdo solto</button>
-                <button type="button" data-profile="crescimento">Quero mais materiais para testar e vender</button>
+                <button type="button" data-profile="A">Falta de direção para escolher um caminho</button>
+                <button type="button" data-profile="B">Falta de ideias para criar conteúdo</button>
+                <button type="button" data-profile="C">Falta de criativos, ganchos e referências para vender</button>
+                <button type="button" data-profile="D">Falta de materiais para montar uma oferta</button>
+                <button type="button" data-profile="E">Falta de volume e organização para executar melhor</button>
               </div>
             </div>
 
             <div class="quiz-step" data-quiz-step>
-              <small>Pergunta 4 de 7</small>
-              <h3>O que você mais gostaria de ter em mãos?</h3>
+              <small>Etapa 5 de 12 — Analisando sua forma de execução</small>
+              <h3 data-question-template="{nome}, quando você tenta vender ou crescer no digital, onde mais trava?">{nome}, quando você tenta vender ou crescer no digital, onde mais trava?</h3>
               <div class="quiz-options">
-                <button type="button" data-profile="iniciante">Um caminho organizado para sair do zero</button>
-                <button type="button" data-profile="tentou">Uma estrutura mais simples para recomeçar</button>
-                <button type="button" data-profile="conteudo">Conteúdos, copys e criativos prontos como base</button>
-                <button type="button" data-profile="crescimento">Mais estratégias e possibilidades de teste</button>
+                <button type="button" data-profile="A">Na escolha do nicho certo</button>
+                <button type="button" data-profile="B">Na criação de conteúdo com frequência</button>
+                <button type="button" data-profile="C">Na copy, nos ganchos e nos criativos</button>
+                <button type="button" data-profile="D">Na organização dos materiais que preciso usar</button>
+                <button type="button" data-profile="E">Na falta de constância para testar e melhorar</button>
               </div>
             </div>
 
             <div class="quiz-step" data-quiz-step>
-              <small>Pergunta 5 de 7</small>
-              <h3>Qual objetivo você quer priorizar?</h3>
+              <small>Etapa 6 de 12 — Identificando o tipo de acervo ideal</small>
+              <h3 data-question-template="{nome}, que tipo de acervo mais ajudaria você agora?">{nome}, que tipo de acervo mais ajudaria você agora?</h3>
               <div class="quiz-options">
-                <button type="button" data-profile="iniciante">Entender por onde começar</button>
-                <button type="button" data-profile="tentou">Encontrar um caminho mais organizado</button>
-                <button type="button" data-profile="conteudo">Ter material para divulgar com mais praticidade</button>
-                <button type="button" data-profile="crescimento">Aumentar o volume de testes e oportunidades</button>
+                <button type="button" data-profile="A">Um acervo com ideias e conteúdos para começar</button>
+                <button type="button" data-profile="B">Um acervo com vídeos, criativos e referências para adaptar</button>
+                <button type="button" data-profile="C">Um acervo com PLRs e materiais para montar ofertas</button>
+                <button type="button" data-profile="D">Um acervo com cursos e conteúdos de várias áreas para aprender mais</button>
+                <button type="button" data-profile="E">Um acervo completo e organizado, com cursos, conteúdos, criativos e materiais prontos</button>
               </div>
             </div>
 
-            <div class="quiz-step quiz-doubt-step" data-quiz-step>
-              <small>Pergunta 6 de 7</small>
-              <h3>Quanto você gostaria de ganhar por dia com a internet?</h3>
-              <p class="quiz-helper">Essa resposta serve apenas para entender seu objetivo e nível de ambição. O Cofre Império Digital não garante ganhos.</p>
+            <div class="quiz-step" data-quiz-step>
+              <small>Etapa 7 de 12 — Avaliando sua dificuldade com criação</small>
+              <h3 data-question-template="{nome}, você sente que perde muito tempo tentando criar tudo do zero?">{nome}, você sente que perde muito tempo tentando criar tudo do zero?</h3>
               <div class="quiz-options">
-                <button type="button" data-profile="iniciante">De R$100 a R$500 por dia</button>
-                <button type="button" data-profile="tentou">De R$1.000 a R$5.000 por dia</button>
-                <button type="button" data-profile="crescimento">De R$5.000 a R$10.000 por dia</button>
-                <button type="button" data-profile="crescimento">Mais de R$20.000 por dia</button>
+                <button type="button" data-profile="A">Sim, isso me trava bastante</button>
+                <button type="button" data-profile="B">Sim, principalmente para postar conteúdo</button>
+                <button type="button" data-profile="C">Sim, principalmente para criar anúncios ou criativos</button>
+                <button type="button" data-profile="D">Sim, principalmente para montar uma oferta</button>
+                <button type="button" data-profile="E">Sim, meu problema é ter volume e organização para executar</button>
               </div>
             </div>
 
-            <div class="quiz-step quiz-doubt-step" data-quiz-step>
-              <small>Pergunta 7 de 7</small>
-              <h3>Qual dúvida você gostaria de tirar antes de acessar o Cofre Império Digital?</h3>
+            <div class="quiz-step" data-quiz-step>
+              <small>Etapa 8 de 12 — Analisando sua produção atual</small>
+              <h3 data-question-template="{nome}, como está sua produção de conteúdo hoje?">{nome}, como está sua produção de conteúdo hoje?</h3>
               <div class="quiz-options">
-                <button type="button" data-quiz-doubt="valor">Quanto custaria comprar tudo separadamente?</button>
-                <button type="button" data-quiz-doubt="vale">Vale a pena comprar o Cofre Império Digital?</button>
-                <button type="button" data-quiz-doubt="confianca">Posso confiar na compra do Cofre Império Digital?</button>
+                <button type="button" data-profile="A">Quase não produzo</button>
+                <button type="button" data-profile="B">Produzo, mas sem frequência</button>
+                <button type="button" data-profile="C">Produzo, mas falta ideia boa</button>
+                <button type="button" data-profile="D">Produzo, mas quero melhorar o nível</button>
+                <button type="button" data-profile="E">Produzo, mas preciso de mais volume e variação</button>
               </div>
             </div>
 
-            <div class="quiz-doubt-answer" data-quiz-doubt-answer aria-live="polite">
-              <span class="quiz-result-badge">Resposta rápida</span>
-              <h3 data-quiz-doubt-title></h3>
-              <div class="quiz-doubt-copy" data-quiz-doubt-copy></div>
-              <button class="btn btn-primary quiz-next" type="button" data-quiz-doubt-continue>Continuar</button>
+            <div class="quiz-step" data-quiz-step>
+              <small>Etapa 9 de 12 — Entendendo como você usaria os materiais</small>
+              <h3 data-question-template="{nome}, se você tivesse mais materiais prontos, como usaria primeiro?">{nome}, se você tivesse mais materiais prontos, como usaria primeiro?</h3>
+              <div class="quiz-options">
+                <button type="button" data-profile="A">Para começar a postar com mais clareza</button>
+                <button type="button" data-profile="B">Para divulgar produtos como afiliado</button>
+                <button type="button" data-profile="C">Para montar ou melhorar uma oferta própria</button>
+                <button type="button" data-profile="D">Para criar anúncios, criativos e testes</button>
+                <button type="button" data-profile="E">Para alimentar várias ideias e projetos ao mesmo tempo</button>
+              </div>
+            </div>
+
+            <div class="quiz-step" data-quiz-step>
+              <small>Etapa 10 de 12 — Mapeando sua maior dor</small>
+              <h3 data-question-template="{nome}, qual dessas dores mais combina com seu momento?">{nome}, qual dessas dores mais combina com seu momento?</h3>
+              <div class="quiz-options">
+                <button type="button" data-profile="A">“Eu quero começar, mas ainda estou sem direção.”</button>
+                <button type="button" data-profile="B">“Eu já comecei, mas estou travado.”</button>
+                <button type="button" data-profile="C">“Eu posto, mas não consigo manter frequência.”</button>
+                <button type="button" data-profile="D">“Eu tenho ideia, mas falta material para executar.”</button>
+                <button type="button" data-profile="E">“Eu preciso testar mais, mas não tenho volume de conteúdo e criativos.”</button>
+              </div>
+            </div>
+
+            <div class="quiz-step" data-quiz-step>
+              <small>Etapa 11 de 12 — Identificando o que mais te ajudaria</small>
+              <h3 data-question-template="{nome}, o que você mais gostaria de ter na mão hoje?">{nome}, o que você mais gostaria de ter na mão hoje?</h3>
+              <div class="quiz-options">
+                <button type="button" data-profile="A">Ideias prontas para começar</button>
+                <button type="button" data-profile="B">Conteúdos e vídeos para adaptar</button>
+                <button type="button" data-profile="C">PLRs, cursos e materiais para criar uma oferta</button>
+                <button type="button" data-profile="D">Criativos, ganchos e referências para anúncio</button>
+                <button type="button" data-profile="E">Uma biblioteca organizada para aprender, produzir e testar mais rápido</button>
+              </div>
+            </div>
+
+            <div class="quiz-step" data-quiz-step>
+              <small>Etapa 12 de 12 — Finalizando seu diagnóstico</small>
+              <h3 data-question-template="{nome}, se hoje você tivesse acesso a um acervo grande e organizado, isso te ajudaria mais em quê?">{nome}, se hoje você tivesse acesso a um acervo grande e organizado, isso te ajudaria mais em quê?</h3>
+              <div class="quiz-options">
+                <button type="button" data-profile="A">Entender por onde começar</button>
+                <button type="button" data-profile="B">Criar conteúdo com mais frequência</button>
+                <button type="button" data-profile="C">Ter base para vender como afiliado ou produtor</button>
+                <button type="button" data-profile="D">Aprender novas áreas e transformar conhecimento em oportunidade</button>
+                <button type="button" data-profile="E">Aumentar minha velocidade de produção, teste e execução</button>
+              </div>
+            </div>
+
+            <div class="quiz-loading" data-quiz-loading aria-live="polite">
+              <span class="quiz-result-badge">Analisando suas respostas...</span>
+              <h3>Estamos cruzando seu momento atual, seu principal bloqueio e o tipo de estrutura que mais combina com você.</h3>
+              <p>Isso leva apenas alguns segundos.</p>
             </div>
 
             <div class="quiz-result" data-quiz-result aria-live="polite">
-              <span class="quiz-result-badge">Resultado personalizado</span>
+              <span class="quiz-result-badge">Diagnóstico concluído</span>
               <h3 data-quiz-result-title></h3>
-              <p data-quiz-result-message></p>
-              <a class="btn btn-primary" href="#oferta" data-quiz-result-link>Ver meu acesso recomendado</a>
+              <div class="quiz-result-message" data-quiz-result-message></div>
+              <a class="btn btn-primary" href="#top" data-quiz-result-link>Ver meu acesso recomendado</a>
             </div>
           </div>
         </div>
