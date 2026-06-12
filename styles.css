@@ -1190,8 +1190,9 @@ img {
 .product-single .product-showcase-image {
   width: 100%;
   aspect-ratio: 16 / 9;
-  object-fit: contain;
-  padding: 10px;
+  object-fit: cover;
+  padding: 0;
+  border-radius: 24px;
 }
 
 .product-single .metric-strip {
