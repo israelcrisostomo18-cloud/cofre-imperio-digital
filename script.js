@@ -123,59 +123,6 @@ if (navToggle && navLinks) {
   });
 }
 
-document.querySelectorAll("[data-vsl-player]").forEach((player) => {
-  const video = player.querySelector("video");
-  const progressFill = player.querySelector("[data-vsl-progress]");
-  const progressWrap = player.querySelector(".vsl-progress");
-  const section = player.closest(".vsl-section");
-  const vslCta = section ? section.querySelector(".vsl-cta") : null;
-
-  if (!video) return;
-
-  video.controls = true;
-
-  const updateProgress = () => {
-    const duration = Number.isFinite(video.duration) ? video.duration : 0;
-    const percent = duration > 0 ? Math.min((video.currentTime / duration) * 100, 100) : 0;
-
-    if (progressFill) {
-      progressFill.style.width = `${percent}%`;
-    }
-
-    if (progressWrap) {
-      progressWrap.setAttribute("aria-valuenow", String(Math.round(percent)));
-    }
-  };
-
-  video.addEventListener("play", () => {
-    player.classList.add("is-loaded");
-    player.classList.add("is-playing");
-  });
-
-  video.addEventListener("pause", () => {
-    player.classList.remove("is-playing");
-  });
-
-  video.addEventListener("loadedmetadata", () => {
-    updateProgress();
-  });
-
-  video.addEventListener("timeupdate", () => {
-    updateProgress();
-  });
-
-  if (vslCta) {
-    vslCta.addEventListener("click", (event) => {
-      event.preventDefault();
-
-      const target = document.querySelector(vslCta.getAttribute("href"));
-      if (target) {
-        target.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-    });
-  }
-});
-
 const quiz = document.querySelector("[data-quiz]");
 
 if (quiz) {
