@@ -370,7 +370,8 @@ const includedProducts = [
     name: "Vídeos Atualizados — Autoridade e Comunicação",
     description: "Conteúdos para comunicação forte.",
     value: "R$37,00",
-    image: "/images/produtos/autoridade-comunicacao.png"
+    image: "/images/produtos/autoridade-comunicacao.png",
+    checkoutUrl: "https://pay.hotmart.com/Y106303392L"
   },
   {
     name: "Memes e Conteúdos Virais",
@@ -397,7 +398,8 @@ const includedProducts = [
     name: "Curso de Finanças Sérias — Receita Previsível",
     description: "Organização e visão financeira.",
     value: "R$47,00",
-    image: "/images/produtos/financas-receita-previsivel.png"
+    image: "/images/produtos/financas-receita-previsivel.png",
+    checkoutUrl: "https://pay.hotmart.com/U106303922L"
   },
   {
     name: "Pack Grupos de Vendas — Vários Nichos",
