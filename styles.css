@@ -5774,3 +5774,57 @@ body {
     opacity: 0.75;
   }
 }
+
+/* Imagem principal da seção de bônus: destaque horizontal premium e responsivo. */
+#bonus .bonus-layout {
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 0.95fr);
+  align-items: center;
+}
+
+#bonus .bonus-image {
+  min-height: auto;
+  max-height: none;
+  align-self: center;
+  padding: clamp(8px, 1vw, 12px);
+  border-color: rgba(243, 214, 124, 0.28);
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at 16% 0%, rgba(243, 214, 124, 0.12), transparent 16rem),
+    linear-gradient(145deg, rgba(20, 31, 54, 0.9), rgba(5, 8, 20, 0.96));
+  box-shadow: 0 28px 78px rgba(0, 0, 0, 0.34), 0 0 58px rgba(212, 175, 55, 0.08);
+}
+
+#bonus .bonus-image img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 14 / 10;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 20px;
+}
+
+@media (max-width: 860px) {
+  #bonus .bonus-layout {
+    grid-template-columns: 1fr;
+  }
+
+  #bonus .bonus-image {
+    width: min(100%, 680px);
+    margin: 0 auto;
+  }
+
+  #bonus .bonus-image img {
+    aspect-ratio: 1.4 / 1;
+  }
+}
+
+@media (max-width: 480px) {
+  #bonus .bonus-image {
+    padding: 7px;
+    border-radius: 22px;
+  }
+
+  #bonus .bonus-image img {
+    border-radius: 16px;
+  }
+}
