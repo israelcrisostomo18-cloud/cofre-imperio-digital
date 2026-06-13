@@ -5598,3 +5598,179 @@ details p,
 .quiz-result-badge {
   box-shadow: inset 0 0 0 1px rgba(243, 214, 124, 0.05), 0 10px 24px rgba(0, 0, 0, 0.18);
 }
+
+/* Fluxo contínuo: remove cortes duros entre as dobras e unifica o ambiente visual. */
+body {
+  background:
+    radial-gradient(circle at 18% 4%, rgba(212, 175, 55, 0.14), transparent 30rem),
+    radial-gradient(circle at 86% 14%, rgba(60, 105, 190, 0.2), transparent 34rem),
+    linear-gradient(180deg, #050814 0%, #07101d 24%, #061125 52%, #050814 100%);
+}
+
+.hero,
+.product,
+.cofre-showcase,
+.producer-callout,
+#bonus,
+.access,
+.offer,
+.guarantee,
+.faq,
+.final,
+.quiz-section,
+.site-footer {
+  position: relative;
+  overflow: hidden;
+  border-top: 0;
+  border-bottom: 0;
+  border-block: 0;
+  background:
+    radial-gradient(circle at 14% -8%, rgba(212, 175, 55, 0.08), transparent 24rem),
+    radial-gradient(circle at 88% 0%, rgba(60, 105, 190, 0.14), transparent 30rem),
+    linear-gradient(180deg, rgba(5, 8, 20, 0) 0%, rgba(7, 16, 29, 0.78) 38%, rgba(5, 8, 20, 0) 100%);
+}
+
+.hero::after,
+.product::after,
+.cofre-showcase::after,
+.producer-callout::after,
+#bonus::after,
+.access::after,
+.offer::after,
+.guarantee::after,
+.faq::after,
+.final::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -92px;
+  z-index: 0;
+  width: min(920px, 82vw);
+  height: 170px;
+  pointer-events: none;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse at center, rgba(212, 175, 55, 0.07), transparent 70%);
+  filter: blur(10px);
+}
+
+.hero > *,
+.product > *,
+.cofre-showcase > *,
+.producer-callout > *,
+#bonus > *,
+.access > *,
+.offer > *,
+.guarantee > *,
+.faq > *,
+.final > *,
+.quiz-section > *,
+.site-footer > * {
+  position: relative;
+  z-index: 1;
+}
+
+.section-pad {
+  padding-block: clamp(72px, 8vw, 104px);
+}
+
+.hero.section-pad {
+  padding-bottom: clamp(64px, 7vw, 92px);
+}
+
+.product.section-pad,
+.cofre-showcase.section-pad,
+.producer-callout.section-pad,
+#bonus.section-pad,
+.access.section-pad,
+.offer.section-pad,
+.guarantee.section-pad,
+.faq.section-pad,
+.final.section-pad {
+  margin-top: -1px;
+}
+
+.product::before,
+.cofre-showcase::before,
+.producer-callout::before,
+#bonus::before,
+.access::before,
+.offer::before,
+.guarantee::before,
+.faq::before,
+.final::before {
+  opacity: 0.1;
+  mask-image: linear-gradient(180deg, transparent, #000 22%, #000 78%, transparent);
+}
+
+.promo-price,
+.product-stack,
+.product-hero-frame,
+.content-preview,
+.cofre-showcase-card,
+.student-proof,
+.student-proof-card,
+.bonus-card,
+.step-card,
+.producer-card,
+.availability-card,
+.access-visual,
+.cofre-flow-art,
+.offer-card,
+.price-box,
+.guarantee .narrow,
+.faq-list details,
+.final .container,
+.quiz-card,
+.quiz-result-panel,
+.products-value-box {
+  box-shadow:
+    0 24px 68px rgba(0, 0, 0, 0.28),
+    0 0 48px rgba(212, 175, 55, 0.045),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.035);
+}
+
+#conteudos.included {
+  border-block: 0;
+  background:
+    radial-gradient(circle at 16% -4%, rgba(243, 214, 124, 0.2), transparent 23rem),
+    radial-gradient(circle at 86% 10%, rgba(58, 112, 212, 0.38), transparent 32rem),
+    linear-gradient(180deg, rgba(6, 17, 37, 0.35) 0%, #08224a 28%, #07162f 76%, rgba(5, 8, 20, 0.35) 100%);
+}
+
+#conteudos.included::after {
+  height: 220px;
+  bottom: -116px;
+  background: radial-gradient(ellipse at center, rgba(88, 145, 255, 0.12), transparent 70%);
+}
+
+.site-footer {
+  background:
+    radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.08), transparent 22rem),
+    linear-gradient(180deg, rgba(5, 8, 20, 0.2), #03050b 72%);
+}
+
+@media (max-width: 860px) {
+  .section-pad {
+    padding-block: 64px;
+  }
+
+  .hero.section-pad {
+    padding-bottom: 58px;
+  }
+
+  .hero::after,
+  .product::after,
+  .cofre-showcase::after,
+  .producer-callout::after,
+  #bonus::after,
+  .access::after,
+  .offer::after,
+  .guarantee::after,
+  .faq::after,
+  .final::after {
+    width: 92vw;
+    height: 120px;
+    bottom: -72px;
+    opacity: 0.75;
+  }
+}
