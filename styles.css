@@ -5086,3 +5086,433 @@ body.quiz-completed #quiz {
     width: 100%;
   }
 }
+
+/* Identidade final premium: cofre digital escuro, azul profundo e dourado */
+:root {
+  --bg: #050814;
+  --bg-soft: #07101d;
+  --panel: #0b1424;
+  --panel-2: #101b30;
+  --text: #fff8ec;
+  --muted: rgba(239, 232, 217, 0.76);
+  --muted-2: rgba(239, 232, 217, 0.56);
+  --green: #d4af37;
+  --green-2: #f3d67c;
+  --gold: #d4af37;
+  --gold-2: #f3d67c;
+  --line: rgba(212, 175, 55, 0.18);
+  --shadow: 0 28px 86px rgba(0, 0, 0, 0.42);
+}
+
+html,
+body {
+  background: #050814;
+}
+
+body {
+  color: var(--text);
+  background:
+    radial-gradient(circle at 16% 4%, rgba(212, 175, 55, 0.16), transparent 28rem),
+    radial-gradient(circle at 86% 12%, rgba(38, 86, 168, 0.22), transparent 32rem),
+    radial-gradient(circle at 50% 58%, rgba(7, 16, 29, 0.72), transparent 38rem),
+    linear-gradient(180deg, #050814 0%, #07101d 44%, #05070d 100%);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.028) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.024) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 0.62), transparent 72%);
+}
+
+main,
+.hero,
+.product,
+.cofre-showcase,
+.producer-callout,
+#bonus,
+.access,
+.offer,
+.guarantee,
+.faq,
+.final,
+.site-footer,
+.quiz-section {
+  color: var(--text);
+}
+
+.hero,
+.product,
+.cofre-showcase,
+.producer-callout,
+#bonus,
+.access,
+.offer,
+.guarantee,
+.faq,
+.final,
+.quiz-section {
+  background:
+    radial-gradient(circle at 12% 0%, rgba(212, 175, 55, 0.11), transparent 24rem),
+    radial-gradient(circle at 88% 16%, rgba(36, 78, 148, 0.22), transparent 26rem),
+    linear-gradient(180deg, rgba(7, 16, 29, 0.96), rgba(5, 8, 20, 0.98));
+  border-color: rgba(212, 175, 55, 0.14);
+}
+
+.product,
+#bonus,
+.guarantee,
+.final {
+  background:
+    radial-gradient(circle at 78% 8%, rgba(212, 175, 55, 0.13), transparent 22rem),
+    linear-gradient(180deg, #07101d 0%, #060a16 100%);
+}
+
+.cofre-showcase,
+.access,
+.faq {
+  background:
+    radial-gradient(circle at 12% 10%, rgba(26, 78, 142, 0.28), transparent 28rem),
+    linear-gradient(180deg, #05070d 0%, #0a1323 100%);
+}
+
+h1,
+h2,
+h3,
+summary,
+.hero-copy h1,
+.section-heading h2,
+.offer-copy h2,
+.final h2,
+.producer-copy h2,
+.student-proof-heading h3,
+.content-preview strong,
+.flow-core strong,
+.availability-head strong,
+.value-stack strong,
+.cofre-showcase-card h3,
+.included-card h3,
+.bonus-card h3,
+.step-card h3,
+.producer-main,
+.footer-grid strong,
+.brand,
+.brand-text {
+  color: #fff8ec;
+}
+
+p,
+small,
+details p,
+.hero-subtitle,
+.section-heading p,
+.section-copy p,
+.offer-copy p,
+.student-proof-heading p,
+.student-proof-footer p,
+.guarantee p,
+.final p,
+.microcopy,
+.producer-safe,
+.cofre-showcase-note,
+.content-preview span,
+.included-card p,
+.bonus-card p,
+.step-card p,
+.cofre-showcase-card p,
+.site-footer p,
+.footer-links,
+.nav-links {
+  color: rgba(239, 232, 217, 0.76);
+}
+
+.site-header {
+  color: #fff8ec;
+  border-color: rgba(212, 175, 55, 0.24);
+  background: rgba(5, 8, 20, 0.84);
+  box-shadow: 0 20px 62px rgba(0, 0, 0, 0.34), inset 0 0 0 1px rgba(255, 255, 255, 0.025);
+}
+
+.brand-mark,
+.brand-mark.small {
+  color: #f3d67c;
+  border-color: rgba(212, 175, 55, 0.44);
+  background: linear-gradient(145deg, rgba(20, 31, 54, 0.98), rgba(5, 8, 20, 0.96));
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05), 0 16px 38px rgba(212, 175, 55, 0.12);
+}
+
+.nav-links a:hover,
+.footer-links a:hover {
+  color: #f3d67c;
+}
+
+.section-kicker,
+.eyebrow,
+.hero .eyebrow,
+.promo-label,
+.content-icon,
+.bonus-card > span,
+.step-card span,
+.flow-crown,
+.metric-strip strong,
+.visual-points span,
+.quiz-result-badge {
+  color: #f3d67c;
+  border-color: rgba(212, 175, 55, 0.28);
+  background: rgba(212, 175, 55, 0.1);
+}
+
+.btn-primary,
+.header-cta,
+.price-box .btn.full {
+  color: #09101d;
+  border-color: rgba(243, 214, 124, 0.42);
+  background: linear-gradient(135deg, #fff1bc 0%, #d4af37 48%, #a87812 100%);
+  box-shadow: 0 18px 48px rgba(212, 175, 55, 0.26), 0 8px 24px rgba(0, 0, 0, 0.26);
+}
+
+.btn-primary:hover,
+.price-box .btn.full:hover {
+  box-shadow: 0 24px 68px rgba(212, 175, 55, 0.34), 0 0 0 1px rgba(243, 214, 124, 0.26);
+}
+
+.btn-whatsapp {
+  color: #fff8ec;
+  border-color: rgba(212, 175, 55, 0.36);
+  background: linear-gradient(135deg, #0b1424, #14375c 56%, #d4af37);
+  box-shadow: 0 18px 48px rgba(20, 55, 92, 0.28);
+}
+
+.btn-ghost {
+  color: #fff8ec;
+  border-color: rgba(212, 175, 55, 0.24);
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.promo-price,
+.product-stack,
+.product-hero-frame,
+.authority-hero-frame,
+.content-preview,
+.cofre-showcase-card,
+.student-proof,
+.student-proof-card,
+.included-card,
+.bonus-card,
+.step-card,
+.producer-card,
+.availability-card,
+.access-visual,
+.cofre-flow-art,
+.offer-card,
+.price-box,
+.guarantee .narrow,
+.faq-list details,
+.final .container,
+.fit-panel,
+.quiz-card,
+.quiz-result-panel {
+  color: #fff8ec;
+  border-color: rgba(212, 175, 55, 0.22);
+  background:
+    radial-gradient(circle at 20% 0%, rgba(212, 175, 55, 0.12), transparent 16rem),
+    linear-gradient(145deg, rgba(20, 31, 54, 0.96), rgba(5, 8, 20, 0.96));
+  box-shadow: 0 24px 68px rgba(0, 0, 0, 0.34), inset 0 0 0 1px rgba(255, 255, 255, 0.035);
+}
+
+.content-preview div,
+.cofre-showcase-card div {
+  background: linear-gradient(180deg, rgba(5, 8, 20, 0.16), rgba(5, 8, 20, 0.86) 76%, rgba(7, 16, 29, 0.96));
+}
+
+.content-preview img,
+.product-hero-frame,
+.bonus-image img,
+.student-proof-card img {
+  border-color: rgba(212, 175, 55, 0.26);
+  background: #050814;
+  box-shadow: 0 22px 56px rgba(0, 0, 0, 0.34);
+}
+
+.promo-price strong,
+.price,
+.price-box .installment-price,
+.products-value-box strong {
+  color: #f3d67c;
+  text-shadow: 0 0 26px rgba(212, 175, 55, 0.18);
+}
+
+.installment-price span,
+.price-box .installment-price span {
+  color: #fff8ec;
+}
+
+.promo-price .old-price,
+.from-price,
+.from-price s,
+.promo-price small,
+.installment,
+.price-box .installment {
+  color: rgba(239, 232, 217, 0.68);
+  text-decoration-color: rgba(255, 248, 236, 0.86);
+}
+
+.urgency-banner,
+.urgency-banner.compact,
+.urgency-banner.center {
+  color: #fff8ec;
+  border-color: rgba(212, 175, 55, 0.34);
+  background:
+    radial-gradient(circle at 12% 0%, rgba(212, 175, 55, 0.18), transparent 12rem),
+    linear-gradient(135deg, rgba(17, 31, 54, 0.98), rgba(5, 8, 20, 0.96));
+  box-shadow: 0 16px 42px rgba(0, 0, 0, 0.28);
+}
+
+.urgency-banner strong {
+  color: #f3d67c;
+}
+
+.urgency-banner span {
+  color: rgba(239, 232, 217, 0.72);
+}
+
+.badge-row span,
+.benefit-grid span,
+.visual-points span,
+.value-stack span,
+.metric-strip,
+.flow-module,
+.flow-core {
+  color: #fff8ec;
+  border-color: rgba(212, 175, 55, 0.22);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.availability-dot,
+.activity-topbar-dot {
+  background: #f3d67c;
+  box-shadow: 0 0 18px rgba(212, 175, 55, 0.42);
+}
+
+.activity-topbar,
+.activity-toast {
+  color: #fff8ec;
+  border-color: rgba(212, 175, 55, 0.28);
+  background: rgba(7, 16, 29, 0.94);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.32), inset 0 0 0 1px rgba(255, 255, 255, 0.035);
+}
+
+.activity-topbar strong,
+.activity-toast strong,
+.activity-toast-icon {
+  color: #f3d67c;
+}
+
+.site-footer {
+  border-color: rgba(212, 175, 55, 0.16);
+  background:
+    radial-gradient(circle at 14% 0%, rgba(212, 175, 55, 0.11), transparent 20rem),
+    linear-gradient(180deg, #050814, #03050b);
+}
+
+.quiz-section {
+  min-height: 100vh;
+}
+
+.quiz-intro h2,
+.quiz-card h3,
+.quiz-result h3 {
+  color: #fff8ec;
+}
+
+.quiz-intro p,
+.quiz-start p,
+.quiz-loading p,
+.quiz-helper,
+.quiz-progress-label {
+  color: rgba(239, 232, 217, 0.76);
+}
+
+.quiz-name-field span,
+.quiz-result-message,
+.quiz-result p,
+.quiz-result-panel span {
+  color: rgba(239, 232, 217, 0.76);
+}
+
+.quiz-name-field input,
+.quiz-options button {
+  color: #fff8ec;
+  border-color: rgba(212, 175, 55, 0.22);
+  background: rgba(255, 255, 255, 0.045);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.2);
+}
+
+.quiz-name-field input::placeholder {
+  color: rgba(239, 232, 217, 0.48);
+}
+
+.quiz-options button:hover,
+.quiz-options button:focus-visible {
+  border-color: rgba(243, 214, 124, 0.46);
+  background: rgba(212, 175, 55, 0.12);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.26);
+}
+
+.quiz-result-panel strong {
+  color: #f3d67c;
+}
+
+/* A dobra de produtos segue a mesma identidade, mas com azul mais intenso para se destacar. */
+#conteudos.included {
+  color: #fff8ec;
+  background:
+    radial-gradient(circle at 16% 0%, rgba(243, 214, 124, 0.22), transparent 22rem),
+    radial-gradient(circle at 84% 12%, rgba(38, 95, 184, 0.42), transparent 30rem),
+    linear-gradient(180deg, #08224a 0%, #07162f 48%, #050814 100%);
+  border-block: 1px solid rgba(243, 214, 124, 0.24);
+}
+
+#conteudos.included::before {
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 54px 54px;
+}
+
+.products-value-box {
+  background:
+    radial-gradient(circle at 16% 0%, rgba(243, 214, 124, 0.2), transparent 14rem),
+    linear-gradient(145deg, rgba(9, 32, 68, 0.98), rgba(5, 8, 20, 0.98));
+}
+
+@media (max-width: 860px) {
+  .site-header {
+    background: rgba(5, 8, 20, 0.92);
+  }
+
+  .nav-links {
+    border-color: rgba(212, 175, 55, 0.24);
+    background:
+      radial-gradient(circle at 20% 0%, rgba(212, 175, 55, 0.12), transparent 12rem),
+      linear-gradient(180deg, rgba(7, 16, 29, 0.98), rgba(5, 8, 20, 0.98));
+  }
+
+  .nav-links a {
+    color: #fff8ec;
+    border-color: rgba(212, 175, 55, 0.18);
+    background: rgba(255, 255, 255, 0.04);
+  }
+
+  .nav-links a:hover,
+  .nav-links a:focus-visible {
+    color: #f3d67c;
+    border-color: rgba(243, 214, 124, 0.38);
+  }
+}
