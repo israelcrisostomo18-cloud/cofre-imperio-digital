@@ -8,7 +8,7 @@ const CONFIG = {
 const PRODUCT_PIXEL_DATA = {
   content_name: "Cofre Império Digital",
   content_category: "Produto Digital",
-  value: 47.9,
+  value: 67.9,
   currency: "BRL"
 };
 
@@ -129,8 +129,6 @@ if (quiz) {
   const steps = Array.from(quiz.querySelectorAll("[data-quiz-step]"));
   const startScreen = quiz.querySelector("[data-quiz-start-screen]");
   const startButton = quiz.querySelector("[data-quiz-start]");
-  const nameInput = quiz.querySelector("[data-quiz-name-input]");
-  const nameNext = quiz.querySelector("[data-quiz-name-next]");
   const loading = quiz.querySelector("[data-quiz-loading]");
   const result = quiz.querySelector("[data-quiz-result]");
   const resultTitle = quiz.querySelector("[data-quiz-result-title]");
@@ -142,87 +140,46 @@ if (quiz) {
     A: 0,
     B: 0,
     C: 0,
-    D: 0,
-    E: 0
+    D: 0
   };
-  const fallbackName = "você";
-  let quizName = fallbackName;
   let currentStep = -1;
 
   const resultMap = {
     A: {
-      title: "{nome}, seu diagnóstico está pronto",
-      button: "Ver meu acesso recomendado",
+      title: "Seu diagnóstico: você não precisa de mais enrolação, precisa de um caminho pronto.",
+      button: "Quero Acessar o Cofre Agora",
       html: `
-        <p>Pelas suas respostas, seu perfil mostra que você está em uma fase de começo, mas não quer começar de qualquer jeito.</p>
-        <p>Você quer entrar no digital com mais clareza, mas ainda sente falta de um caminho, de ideias e de uma estrutura inicial.</p>
-        <p>O seu maior bloqueio não parece ser falta de vontade. O que falta é um ponto de partida mais organizado.</p>
-        <p>Você provavelmente já percebeu que começar do zero absoluto é difícil, principalmente quando você não sabe o que postar, o que estudar, que nicho escolher ou qual material usar primeiro.</p>
-        <p>Por isso, o seu perfil combina com uma estrutura que te ajude a enxergar possibilidades, acessar materiais prontos, estudar novas áreas e começar com mais direção.</p>
-        <div class="quiz-result-panel"><strong>Seu principal bloqueio</strong><span>Falta de clareza e ponto de partida.</span></div>
-        <div class="quiz-result-panel"><strong>O que mais pode te ajudar agora</strong><span>Um acervo organizado com conteúdos, cursos, ideias, materiais e referências para você parar de depender apenas da tentativa e erro.</span></div>
-        <p>{nome}, veja a explicação da página para entender como o Cofre Império Digital pode funcionar como uma base inicial para quem quer começar no digital com mais estrutura.</p>
+        <p>Pelas suas respostas, seu maior problema hoje não é falta de vontade. É falta de direção, materiais certos e um plano simples para começar no digital sem ficar perdido.</p>
+        <div class="quiz-result-panel"><strong>Perfil identificado</strong><span>Iniciante sem direção.</span></div>
       `
     },
     B: {
-      title: "{nome}, seu diagnóstico está pronto",
-      button: "Ver meu acesso recomendado",
+      title: "Seu diagnóstico: você precisa transformar conteúdo em venda.",
+      button: "Quero Acessar o Cofre Agora",
       html: `
-        <p>Pelas suas respostas, seu perfil combina com quem quer ganhar dinheiro no digital usando conteúdo, divulgação e venda como afiliado.</p>
-        <p>Você talvez já tenha tentado vender alguma coisa, postar conteúdo ou divulgar algum produto, mas sentiu que faltava constância, material e direção.</p>
-        <p>Esse é um ponto comum: muita gente não para por falta de vontade. Para porque não sabe o que postar, não tem criativos, não tem vídeos, não tem ideias e acaba ficando travada.</p>
-        <p>Para o seu momento, o caminho mais inteligente é ter materiais que possam servir como base para criar posts, divulgar produtos, testar nichos e melhorar sua comunicação.</p>
-        <div class="quiz-result-panel"><strong>Seu principal bloqueio</strong><span>Falta de conteúdo, constância e material para divulgar.</span></div>
-        <div class="quiz-result-panel"><strong>O que mais pode te ajudar agora</strong><span>Vídeos, criativos, referências, conteúdos prontos, materiais por nicho e ideias para adaptar.</span></div>
-        <p>{nome}, veja a explicação da página para entender como o Cofre Império Digital pode te ajudar a ter mais material na mão para divulgar, postar e vender com mais consistência.</p>
+        <p>Pelas suas respostas, você já entende que o digital funciona, mas ainda falta estrutura, constância e materiais certos para transformar atenção em resultado.</p>
+        <div class="quiz-result-panel"><strong>Perfil identificado</strong><span>Tem conteúdo, mas não vende.</span></div>
       `
     },
     C: {
-      title: "{nome}, seu diagnóstico está pronto",
-      button: "Ver meu acesso recomendado",
+      title: "Seu diagnóstico: você precisa de um acervo pronto para executar.",
+      button: "Quero Acessar o Cofre Agora",
       html: `
-        <p>Pelas suas respostas, seu perfil mostra interesse em criar ou melhorar uma oferta própria.</p>
-        <p>Você talvez queira montar um produto digital, criar uma página, vender um material, organizar uma entrega ou usar PLRs como base para uma oferta.</p>
-        <p>Esse caminho tem potencial, mas também exige estrutura.</p>
-        <p>Muita gente trava porque tenta criar tudo do zero: nome, conteúdo, promessa, material, página, criativos e comunicação.</p>
-        <p>O seu perfil combina com uma base de materiais que possa servir como referência para montar, adaptar e estruturar uma oferta com mais velocidade.</p>
-        <div class="quiz-result-panel"><strong>Seu principal bloqueio</strong><span>Falta de base para transformar ideias em uma oferta vendável.</span></div>
-        <div class="quiz-result-panel"><strong>O que mais pode te ajudar agora</strong><span>PLRs, cursos, materiais digitais, referências, criativos, conteúdos por nicho e arquivos que possam ser usados como ponto de partida.</span></div>
-        <p>{nome}, veja a explicação da página para entender como o Cofre Império Digital pode servir como base para montar ofertas, criar produtos e organizar materiais digitais.</p>
+        <p>Pelas suas respostas, o que mais te trava é ter que criar tudo do zero. O Cofre foi criado justamente para encurtar esse caminho com vídeos, ideias, cursos, PLRs, memes e materiais prontos.</p>
+        <div class="quiz-result-panel"><strong>Perfil identificado</strong><span>Falta conteúdo e constância.</span></div>
       `
     },
     D: {
-      title: "{nome}, seu diagnóstico está pronto",
-      button: "Ver meu acesso recomendado",
+      title: "Seu diagnóstico: você precisa de organização e escala.",
+      button: "Quero Acessar o Cofre Agora",
       html: `
-        <p>Pelas suas respostas, seu perfil mostra que você valoriza conhecimento, aprendizado e acesso a conteúdos de várias áreas.</p>
-        <p>Você não quer apenas postar ou vender qualquer coisa. Você quer ter uma base maior para aprender, entender possibilidades e transformar conhecimento em ação.</p>
-        <p>Esse perfil é forte porque quem aprende mais consegue enxergar mais caminhos: afiliado, produtor, conteúdo, nichos, serviços, ofertas e estratégias.</p>
-        <p>O seu bloqueio talvez não seja falta de vontade, mas falta de acesso a uma estrutura ampla, organizada e com materiais suficientes para estudar, adaptar e executar.</p>
-        <div class="quiz-result-panel"><strong>Seu principal bloqueio</strong><span>Falta de conhecimento organizado e acesso a materiais de várias áreas.</span></div>
-        <div class="quiz-result-panel"><strong>O que mais pode te ajudar agora</strong><span>Cursos, conteúdos, materiais digitais, referências, arquivos por categoria e um acervo amplo para aprender e executar.</span></div>
-        <p>{nome}, veja a explicação da página para entender como o Cofre Império Digital reúne cursos, conteúdos e materiais de várias áreas para quem quer aprender, executar e ter mais possibilidades no digital.</p>
-      `
-    },
-    E: {
-      title: "{nome}, seu diagnóstico está pronto",
-      button: "Ver meu acesso recomendado",
-      html: `
-        <p>Pelas suas respostas, seu perfil mostra que você já entende que no digital não basta ter vontade. É preciso executar, testar e ter volume.</p>
-        <p>Você talvez já tenha começado, já tenha vendido, já tenha postado ou já tenha uma noção melhor do jogo.</p>
-        <p>Mas agora o seu desafio é outro: ter mais materiais, mais criativos, mais ideias, mais referências e mais velocidade para testar.</p>
-        <p>Quem depende de criar tudo do zero demora mais para executar. E no digital, velocidade de teste faz diferença.</p>
-        <p>O seu perfil combina com uma biblioteca organizada que sirva como base para criar, adaptar, testar e alimentar vários projetos ao mesmo tempo.</p>
-        <div class="quiz-result-panel"><strong>Seu principal bloqueio</strong><span>Falta de volume, organização e material para executar com velocidade.</span></div>
-        <div class="quiz-result-panel"><strong>O que mais pode te ajudar agora</strong><span>Criativos, ganchos, vídeos, referências, materiais por nicho, cursos, conteúdos e arquivos organizados para acelerar produção e testes.</span></div>
-        <p>{nome}, veja a explicação da página para entender como o Cofre Império Digital pode te ajudar a ter mais volume de material para produzir, adaptar, testar e executar com mais velocidade.</p>
+        <p>Pelas suas respostas, você não quer só começar. Você quer ter mais clareza, mais material e mais consistência para crescer com estratégia.</p>
+        <div class="quiz-result-panel"><strong>Perfil identificado</strong><span>Quer crescer e organizar melhor.</span></div>
       `
     }
   };
 
-  const tiePriority = ["E", "C", "B", "D", "A"];
-
-  const personalize = (text) => text.replaceAll("{nome}", quizName);
+  const tiePriority = ["C", "D", "B", "A"];
 
   const updateProgress = () => {
     if (!progressFill) return;
@@ -240,19 +197,12 @@ if (quiz) {
     if (result) result.classList.remove("is-active");
   };
 
-  const updateQuestionNames = () => {
-    quiz.querySelectorAll("[data-question-template]").forEach((question) => {
-      question.textContent = personalize(question.dataset.questionTemplate || question.textContent);
-    });
-  };
-
   const showStep = (index) => {
     hideUtilityScreens();
     steps.forEach((step, stepIndex) => {
       step.classList.toggle("is-active", stepIndex === index);
     });
     currentStep = index;
-    updateQuestionNames();
     updateProgress();
   };
 
@@ -271,8 +221,8 @@ if (quiz) {
     updateProgress();
 
     if (progressLabel) progressLabel.textContent = "Diagnóstico concluído";
-    if (resultTitle) resultTitle.textContent = personalize(content.title);
-    if (resultMessage) resultMessage.innerHTML = personalize(content.html);
+    if (resultTitle) resultTitle.textContent = content.title;
+    if (resultMessage) resultMessage.innerHTML = content.html;
     if (resultLink) resultLink.textContent = content.button;
     if (result) result.classList.add("is-active");
   };
@@ -308,26 +258,6 @@ if (quiz) {
     startButton.addEventListener("click", () => showStep(0));
   }
 
-  if (nameInput && nameNext) {
-    nameInput.addEventListener("input", () => {
-      nameNext.disabled = nameInput.value.trim().length < 2;
-    });
-
-    nameInput.addEventListener("keydown", (event) => {
-      if (event.key === "Enter" && !nameNext.disabled) {
-        event.preventDefault();
-        nameNext.click();
-      }
-    });
-
-    nameNext.addEventListener("click", () => {
-      const value = nameInput.value.trim();
-      if (value.length < 2) return;
-      quizName = value.split(/\s+/)[0];
-      showStep(1);
-    });
-  }
-
   quiz.addEventListener("click", (event) => {
     registerAnswer(event.target.closest("[data-profile]"));
   });
@@ -340,18 +270,13 @@ if (quiz) {
   }
 
   if (resultLink) {
-    resultLink.addEventListener("click", (event) => {
-      event.preventDefault();
+    resultLink.addEventListener("click", () => {
       try {
         window.localStorage.setItem(QUIZ_COMPLETED_KEY, "true");
       } catch (error) {
         // Se o navegador bloquear localStorage, libera a página apenas nesta sessão.
       }
       unlockLandingPage();
-      const target = document.querySelector(resultLink.getAttribute("href"));
-      if (target) {
-        target.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
     });
   }
 
