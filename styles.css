@@ -4587,7 +4587,8 @@ details p,
 
 .product-module-link {
   width: fit-content;
-  margin-top: 2px;
+  align-self: end;
+  margin-top: auto;
   padding: 9px 12px;
   border: 1px solid rgba(212, 175, 55, 0.36);
   border-radius: 999px;

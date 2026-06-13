@@ -363,7 +363,8 @@ const includedProducts = [
     name: "Pack de Vídeos — Homens de Poder",
     description: "Vídeos de autoridade e impacto.",
     value: "R$27,00",
-    image: "/images/produtos/homens-de-poder.png"
+    image: "/images/produtos/homens-de-poder.png",
+    checkoutUrl: "https://pay.hotmart.com/P106303341V"
   },
   {
     name: "Vídeos Atualizados — Autoridade e Comunicação",
@@ -375,19 +376,22 @@ const includedProducts = [
     name: "Memes e Conteúdos Virais",
     description: "Conteúdos rápidos para engajar.",
     value: "R$17,00",
-    image: "/images/produtos/memes-conteudos-virais.png"
+    image: "/images/produtos/memes-conteudos-virais.png",
+    checkoutUrl: "https://pay.hotmart.com/W106303614N"
   },
   {
     name: "Pack PLRs em Vídeo",
     description: "Base para ofertas digitais.",
     value: "R$47,00",
-    image: "/images/produtos/plrs-em-video.png"
+    image: "/images/produtos/plrs-em-video.png",
+    checkoutUrl: "https://pay.hotmart.com/I106303677E"
   },
   {
     name: "Pack de Vídeos Lifestyle",
     description: "Vídeos com estética premium.",
     value: "R$37,00",
-    image: "/images/produtos/videos-lifestyle.png"
+    image: "/images/produtos/videos-lifestyle.png",
+    checkoutUrl: "https://pay.hotmart.com/B106303717W"
   },
   {
     name: "Curso de Finanças Sérias — Receita Previsível",
@@ -399,13 +403,15 @@ const includedProducts = [
     name: "Pack Grupos de Vendas — Vários Nichos",
     description: "Grupos para divulgação e prospecção.",
     value: "R$27,00",
-    image: "/images/produtos/grupos-de-vendas.png"
+    image: "/images/produtos/grupos-de-vendas.png",
+    checkoutUrl: "https://pay.hotmart.com/U106302901B"
   },
   {
-    name: "Cursos no Digital — Grandes Treinamentos",
+    name: "Cursos no Digital — Grandes Treinamentos e Materiais de Mercado",
     description: "Cursos e conteúdos de mercado.",
     value: "R$87,00",
-    image: "/images/produtos/cursos-no-digital.png"
+    image: "/images/produtos/cursos-no-digital.png",
+    checkoutUrl: "https://pay.hotmart.com/B106302583R"
   }
 ];
 
@@ -423,7 +429,11 @@ if (productsGrid) {
             <h3>${product.name}</h3>
             <p>${product.description}</p>
             <span class="product-module-value">Valor estimado: <strong>${product.value}</strong></span>
-            <a class="product-module-link" href="#oferta">Ver no Cofre</a>
+            ${
+              product.checkoutUrl
+                ? `<a class="product-module-link" href="${product.checkoutUrl}" target="_blank" rel="noopener noreferrer">Comprar separadamente</a>`
+                : ""
+            }
           </div>
         </article>
       `
