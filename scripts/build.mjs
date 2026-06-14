@@ -5,6 +5,7 @@ await mkdir("dist", { recursive: true });
 await mkdir("dist/assets", { recursive: true });
 await mkdir("dist/assets/optimized", { recursive: true });
 await mkdir("dist/images", { recursive: true });
+await mkdir("dist/videos", { recursive: true });
 
 const html = await readFile("index.html", "utf8");
 const css = await readFile("styles.css", "utf8");
@@ -32,6 +33,7 @@ await writeFile("dist/social-proof.js", socialProofJs.trim());
 
 await cp("assets/optimized", "dist/assets/optimized", { recursive: true });
 await cp("images", "dist/images", { recursive: true });
+await cp("videos", "dist/videos", { recursive: true });
 for (const asset of [
   "favicon.ico",
   "favicon-16.png",
