@@ -6060,3 +6060,37 @@ body {
   font-size: clamp(1.9rem, 3.4vw, 3rem);
   text-shadow: 0 0 28px rgba(212, 175, 55, 0.3);
 }
+
+.products-value-box small,
+.quiz-vsl-offer small,
+.cash-price {
+  color: rgba(255, 248, 236, 0.82);
+  font-size: clamp(0.95rem, 1.7vw, 1.16rem);
+  font-weight: 850;
+  line-height: 1.25;
+  text-align: center;
+}
+
+.products-value-box small {
+  display: block;
+  margin-top: 2px;
+  color: rgba(255, 248, 236, 0.72);
+}
+
+.quiz-vsl-offer small {
+  color: rgba(255, 248, 236, 0.78);
+}
+
+.final-price {
+  margin: 22px auto 0;
+}
+
+@media (max-width: 520px) {
+  .products-value-box div:nth-child(2) strong {
+    font-size: clamp(1.65rem, 9vw, 2.45rem);
+  }
+
+  .quiz-vsl-offer strong {
+    font-size: clamp(1.85rem, 9vw, 3rem);
+  }
+}
