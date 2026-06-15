@@ -4967,10 +4967,91 @@ details p,
   margin-top: 8px;
 }
 
-.quiz-vsl > p {
+.quiz-vsl-transition {
+  display: grid;
+  gap: 8px;
+  padding: clamp(16px, 3vw, 22px);
+  border: 1px solid rgba(200, 155, 44, 0.28);
+  border-radius: 22px;
+  background:
+    radial-gradient(circle at 18% 0%, rgba(200, 155, 44, 0.16), transparent 15rem),
+    linear-gradient(145deg, rgba(9, 18, 34, 0.96), rgba(3, 8, 18, 0.98));
+  box-shadow: 0 18px 48px rgba(3, 8, 18, 0.16);
+  text-align: center;
+}
+
+.quiz-vsl-transition h4 {
   margin: 0;
-  color: #333333;
+  color: #f3d67c;
+  font-size: clamp(1.12rem, 2.1vw, 1.55rem);
+  line-height: 1.15;
+}
+
+.quiz-vsl-transition p,
+.quiz-vsl-transition small,
+.quiz-vsl-wait {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.quiz-vsl-transition p {
   font-weight: 800;
+}
+
+.quiz-vsl-transition small,
+.quiz-vsl-wait {
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.quiz-vsl-wait {
+  justify-self: center;
+  padding: 10px 14px;
+  border: 1px solid rgba(200, 155, 44, 0.28);
+  border-radius: 999px;
+  background: rgba(9, 18, 34, 0.9);
+  color: #f3d67c;
+  text-align: center;
+}
+
+.quiz-vsl-offer {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  margin-top: 4px;
+  padding: clamp(16px, 3vw, 24px);
+  border: 1px solid rgba(200, 155, 44, 0.32);
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(200, 155, 44, 0.2), transparent 16rem),
+    linear-gradient(145deg, rgba(8, 16, 30, 0.97), rgba(3, 8, 18, 0.99));
+  box-shadow: 0 24px 64px rgba(3, 8, 18, 0.2), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  text-align: center;
+  animation: quizFade 280ms ease both;
+}
+
+.quiz-vsl-offer[hidden] {
+  display: none;
+}
+
+.quiz-vsl-offer span {
+  color: rgba(255, 255, 255, 0.72);
+  font-weight: 900;
+}
+
+.quiz-vsl-offer s {
+  text-decoration-color: rgba(255, 255, 255, 0.88);
+  text-decoration-thickness: 2px;
+}
+
+.quiz-vsl-offer strong {
+  color: #f3d67c;
+  font-size: clamp(2.1rem, 7vw, 4rem);
+  line-height: 0.95;
+}
+
+.quiz-vsl-offer .btn {
+  margin-top: 8px;
 }
 
 .vsl-phone-wrapper {

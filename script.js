@@ -136,6 +136,9 @@ if (quiz) {
   const resultTitle = quiz.querySelector("[data-quiz-result-title]");
   const resultMessage = quiz.querySelector("[data-quiz-result-message]");
   const resultLink = quiz.querySelector("[data-quiz-result-link]");
+  const resultVideo = quiz.querySelector(".vsl-phone-video");
+  const vslOffer = quiz.querySelector("[data-vsl-offer]");
+  const vslWait = quiz.querySelector("[data-vsl-wait]");
   const progressFill = quiz.querySelector("[data-quiz-progress]");
   const progressLabel = quiz.querySelector("[data-quiz-progress-label]");
   const scores = {
@@ -235,6 +238,15 @@ if (quiz) {
     if (resultTitle) resultTitle.textContent = personalize(content.title);
     if (resultMessage) resultMessage.innerHTML = personalize(content.html);
     if (resultLink) resultLink.textContent = content.button;
+    if (vslOffer) vslOffer.hidden = true;
+    if (vslWait) vslWait.hidden = false;
+    if (resultVideo) {
+      try {
+        resultVideo.currentTime = 0;
+      } catch (error) {
+        // Alguns navegadores só permitem reposicionar o vídeo após carregar os metadados.
+      }
+    }
     if (result) result.classList.add("is-active");
   };
 
@@ -308,6 +320,13 @@ if (quiz) {
         // Se o navegador bloquear localStorage, libera a página apenas nesta sessão.
       }
       unlockLandingPage();
+    });
+  }
+
+  if (resultVideo) {
+    resultVideo.addEventListener("ended", () => {
+      if (vslOffer) vslOffer.hidden = false;
+      if (vslWait) vslWait.hidden = true;
     });
   }
 
