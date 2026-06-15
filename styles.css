@@ -6194,3 +6194,158 @@ body {
     font-size: clamp(1.85rem, 9vw, 3rem);
   }
 }
+
+/* Oferta principal no desktop: centralizada, hierárquica e sem espalhar preço/CTA. */
+@media (min-width: 1024px) {
+  #oferta .container.offer-card {
+    width: min(100% - 48px, 800px);
+    max-width: 800px;
+    margin-inline: auto;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 28px;
+    padding: clamp(34px, 4vw, 48px);
+    border-color: rgba(243, 214, 124, 0.32);
+    border-radius: 30px;
+    background:
+      radial-gradient(circle at 50% 0%, rgba(243, 214, 124, 0.14), transparent 22rem),
+      linear-gradient(145deg, rgba(13, 25, 48, 0.96), rgba(4, 8, 18, 0.98));
+    text-align: center;
+  }
+
+  #oferta .offer-copy {
+    max-width: 680px;
+    justify-items: center;
+    gap: 18px;
+    text-align: center;
+  }
+
+  #oferta .offer-copy h2 {
+    max-width: 680px;
+    margin-inline: auto;
+  }
+
+  #oferta .offer-copy p {
+    max-width: 620px;
+    margin-inline: auto;
+  }
+
+  #oferta .value-stack {
+    width: min(100%, 620px);
+    justify-items: center;
+  }
+
+  #oferta .value-stack strong {
+    color: #f3d67c;
+  }
+
+  #oferta .value-stack span {
+    width: 100%;
+    padding: 13px 18px;
+    color: rgba(255, 248, 236, 0.86);
+    border-color: rgba(243, 214, 124, 0.18);
+    background: rgba(255, 255, 255, 0.055);
+    text-align: center;
+  }
+
+  #oferta .value-stack span::before {
+    display: none;
+  }
+
+  #oferta .price-box {
+    width: min(100%, 720px);
+    max-width: 720px;
+    justify-items: center;
+    align-content: start;
+    gap: 12px;
+    padding: clamp(30px, 3vw, 42px);
+    border-color: rgba(243, 214, 124, 0.36);
+    border-radius: 28px;
+    background:
+      radial-gradient(circle at 50% 0%, rgba(243, 214, 124, 0.18), transparent 18rem),
+      radial-gradient(circle at 50% 100%, rgba(88, 145, 255, 0.12), transparent 20rem),
+      linear-gradient(145deg, rgba(8, 16, 30, 0.98), rgba(2, 5, 12, 0.98));
+    text-align: center;
+  }
+
+  #oferta .price-box::before {
+    background:
+      radial-gradient(circle at 86% 14%, rgba(243, 214, 124, 0.1), transparent 14rem),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0));
+    opacity: 1;
+  }
+
+  #oferta .price-box::after {
+    background:
+      radial-gradient(circle at 18% 8%, rgba(88, 145, 255, 0.1), transparent 15rem),
+      linear-gradient(180deg, rgba(5, 8, 20, 0), rgba(5, 8, 20, 0.28));
+  }
+
+  #oferta .price-box .promo-label {
+    order: 1;
+    margin-inline: auto;
+  }
+
+  #oferta .price-box .from-price {
+    order: 2;
+    display: block;
+    margin-top: 4px;
+    color: rgba(255, 248, 236, 0.72);
+    font-size: clamp(1.08rem, 1.25vw, 1.32rem);
+    text-align: center;
+  }
+
+  #oferta .price-box .installment-price {
+    order: 3;
+    width: 100%;
+    flex-wrap: nowrap;
+    align-items: baseline;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 4px;
+    color: #fff1bc;
+    font-size: clamp(4.4rem, 6.2vw, 6.8rem);
+    letter-spacing: -0.035em;
+  }
+
+  #oferta .price-box .installment-price span {
+    max-width: none;
+    color: rgba(255, 248, 236, 0.9);
+    font-size: clamp(1.12rem, 1.35vw, 1.42rem);
+    letter-spacing: 0;
+    white-space: nowrap;
+  }
+
+  #oferta .price-box .cash-price {
+    order: 4;
+    margin-top: 0;
+    color: rgba(255, 248, 236, 0.78);
+    font-size: clamp(1.08rem, 1.25vw, 1.24rem);
+  }
+
+  #oferta .price-box .urgency-banner.compact {
+    order: 5;
+    width: min(100%, 520px);
+    margin: 8px auto 0;
+    padding: 12px 16px;
+    border-color: rgba(243, 214, 124, 0.3);
+    background: linear-gradient(135deg, rgba(138, 101, 8, 0.92), rgba(60, 31, 18, 0.94));
+    text-align: center;
+  }
+
+  #oferta .price-box .btn.full {
+    order: 6;
+    width: min(100%, 420px);
+    min-height: 62px;
+    margin: 10px auto 0;
+    white-space: nowrap;
+  }
+
+  #oferta .price-box .microcopy {
+    order: 7;
+    max-width: 520px;
+    margin: 2px auto 0;
+    color: rgba(255, 248, 236, 0.74);
+    text-align: center;
+  }
+}
