@@ -137,6 +137,7 @@ if (quiz) {
   const resultMessage = quiz.querySelector("[data-quiz-result-message]");
   const resultLink = quiz.querySelector("[data-quiz-result-link]");
   const resultVideo = quiz.querySelector(".vsl-phone-video");
+  const vslCover = quiz.querySelector("[data-vsl-cover]");
   const vslOffer = quiz.querySelector("[data-vsl-offer]");
   const vslWait = quiz.querySelector("[data-vsl-wait]");
   const progressFill = quiz.querySelector("[data-quiz-progress]");
@@ -243,10 +244,12 @@ if (quiz) {
     if (resultVideo) {
       try {
         resultVideo.currentTime = 0;
+        resultVideo.pause();
       } catch (error) {
         // Alguns navegadores só permitem reposicionar o vídeo após carregar os metadados.
       }
     }
+    if (vslCover) vslCover.classList.remove("is-hidden");
     if (result) result.classList.add("is-active");
   };
 
@@ -324,6 +327,23 @@ if (quiz) {
   }
 
   if (resultVideo) {
+    const hideVslCover = () => {
+      if (vslCover) vslCover.classList.add("is-hidden");
+    };
+
+    if (vslCover) {
+      vslCover.addEventListener("click", async () => {
+        hideVslCover();
+        try {
+          await resultVideo.play();
+        } catch (error) {
+          // Se o navegador bloquear o play, mantém a capa escondida para liberar os controles nativos.
+        }
+      });
+    }
+
+    resultVideo.addEventListener("play", hideVslCover);
+
     resultVideo.addEventListener("ended", () => {
       if (vslOffer) vslOffer.hidden = false;
       if (vslWait) vslWait.hidden = true;
