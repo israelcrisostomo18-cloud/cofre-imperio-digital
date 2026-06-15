@@ -6333,8 +6333,14 @@ body {
     text-align: center;
   }
 
-  #oferta .price-box .btn.full {
+  #oferta .price-box .guarantee-card {
     order: 6;
+    width: min(100%, 560px);
+    margin-top: 8px;
+  }
+
+  #oferta .price-box .btn.full {
+    order: 7;
     width: min(100%, 420px);
     min-height: 62px;
     margin: 10px auto 0;
@@ -6342,10 +6348,134 @@ body {
   }
 
   #oferta .price-box .microcopy {
-    order: 7;
+    order: 8;
     max-width: 520px;
     margin: 2px auto 0;
     color: rgba(255, 248, 236, 0.74);
+    text-align: center;
+  }
+}
+
+.guarantee-mini,
+.guarantee-short,
+.guarantee-rules {
+  color: rgba(255, 248, 236, 0.78);
+  font-size: clamp(0.88rem, 1.6vw, 1rem);
+  line-height: 1.45;
+}
+
+.guarantee-mini {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: min(100%, 620px);
+  margin: 2px auto 0;
+  padding: 10px 14px;
+  border: 1px solid rgba(243, 214, 124, 0.24);
+  border-radius: 999px;
+  background: rgba(8, 16, 30, 0.68);
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.18);
+  text-align: center;
+}
+
+.guarantee-short {
+  width: min(100%, 560px);
+  margin: 8px auto 2px;
+  padding: 12px 14px;
+  border: 1px solid rgba(243, 214, 124, 0.24);
+  border-radius: 16px;
+  background:
+    radial-gradient(circle at 12% 0%, rgba(243, 214, 124, 0.12), transparent 12rem),
+    rgba(255, 255, 255, 0.045);
+  color: rgba(255, 248, 236, 0.84);
+  font-weight: 800;
+  text-align: center;
+}
+
+.final-guarantee {
+  margin-top: 16px;
+}
+
+.guarantee-card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 14px;
+  padding: clamp(16px, 2.4vw, 22px);
+  border: 1px solid rgba(243, 214, 124, 0.32);
+  border-radius: 22px;
+  background:
+    radial-gradient(circle at 10% 0%, rgba(243, 214, 124, 0.14), transparent 13rem),
+    linear-gradient(145deg, rgba(13, 25, 48, 0.94), rgba(4, 8, 18, 0.97));
+  box-shadow:
+    0 22px 54px rgba(0, 0, 0, 0.26),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+  text-align: left;
+}
+
+.guarantee-icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(243, 214, 124, 0.36);
+  border-radius: 14px;
+  background: rgba(243, 214, 124, 0.12);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.18);
+}
+
+.guarantee-card strong {
+  display: block;
+  color: #f3d67c;
+  font-size: 0.86rem;
+  font-weight: 950;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.guarantee-card h3 {
+  margin: 5px 0 8px;
+  color: #fff8ec;
+  font-size: clamp(1.18rem, 2.4vw, 1.55rem);
+}
+
+.guarantee-card p,
+.guarantee-card small {
+  color: rgba(255, 248, 236, 0.78);
+  line-height: 1.5;
+}
+
+.guarantee-card small,
+.guarantee-rules {
+  display: block;
+  margin-top: 10px;
+  color: rgba(255, 248, 236, 0.62);
+  font-size: 0.84rem;
+}
+
+.guarantee .narrow {
+  padding: clamp(24px, 4vw, 34px);
+  border: 1px solid rgba(243, 214, 124, 0.22);
+  border-radius: 26px;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(243, 214, 124, 0.11), transparent 18rem),
+    rgba(255, 255, 255, 0.035);
+  text-align: center;
+}
+
+.guarantee .narrow h2 {
+  color: #fff8ec;
+}
+
+@media (max-width: 640px) {
+  .guarantee-mini {
+    align-items: flex-start;
+    border-radius: 18px;
+  }
+
+  .guarantee-card {
+    grid-template-columns: 1fr;
+    justify-items: center;
     text-align: center;
   }
 }
