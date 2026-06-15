@@ -129,6 +129,8 @@ if (quiz) {
   const steps = Array.from(quiz.querySelectorAll("[data-quiz-step]"));
   const startScreen = quiz.querySelector("[data-quiz-start-screen]");
   const startButton = quiz.querySelector("[data-quiz-start]");
+  const nameInput = quiz.querySelector("[data-quiz-name-input]");
+  const nameNext = quiz.querySelector("[data-quiz-name-next]");
   const loading = quiz.querySelector("[data-quiz-loading]");
   const result = quiz.querySelector("[data-quiz-result]");
   const resultTitle = quiz.querySelector("[data-quiz-result-title]");
@@ -142,44 +144,46 @@ if (quiz) {
     C: 0,
     D: 0
   };
+  let quizName = "você";
   let currentStep = -1;
 
   const resultMap = {
     A: {
-      title: "Seu diagnóstico: você não precisa de mais enrolação, precisa de um caminho pronto.",
+      title: "{nome}, seu diagnóstico: você não precisa de mais enrolação, precisa de um caminho pronto.",
       button: "Quero Acessar o Cofre Agora",
       html: `
-        <p>Pelas suas respostas, seu maior problema hoje não é falta de vontade. É falta de direção, materiais certos e um plano simples para começar no digital sem ficar perdido.</p>
+        <p>{nome}, pelas suas respostas, ficou claro que seu maior problema hoje não é falta de vontade. É falta de direção, materiais certos e um plano simples para começar no digital sem ficar perdido.</p>
         <div class="quiz-result-panel"><strong>Perfil identificado</strong><span>Iniciante sem direção.</span></div>
       `
     },
     B: {
-      title: "Seu diagnóstico: você precisa transformar conteúdo em venda.",
+      title: "{nome}, seu diagnóstico: você precisa transformar conteúdo em venda.",
       button: "Quero Acessar o Cofre Agora",
       html: `
-        <p>Pelas suas respostas, você já entende que o digital funciona, mas ainda falta estrutura, constância e materiais certos para transformar atenção em resultado.</p>
+        <p>{nome}, pelas suas respostas, você já entende que o digital funciona, mas ainda falta estrutura, constância e materiais certos para transformar atenção em resultado.</p>
         <div class="quiz-result-panel"><strong>Perfil identificado</strong><span>Tem conteúdo, mas não vende.</span></div>
       `
     },
     C: {
-      title: "Seu diagnóstico: você precisa de um acervo pronto para executar.",
+      title: "{nome}, seu diagnóstico: você precisa de um acervo pronto para executar.",
       button: "Quero Acessar o Cofre Agora",
       html: `
-        <p>Pelas suas respostas, o que mais te trava é ter que criar tudo do zero. O Cofre foi criado justamente para encurtar esse caminho com vídeos, ideias, cursos, PLRs, memes e materiais prontos.</p>
+        <p>{nome}, pelas suas respostas, o que mais te trava é ter que criar tudo do zero. O Cofre foi criado justamente para encurtar esse caminho com vídeos, ideias, cursos, PLRs, memes e materiais prontos.</p>
         <div class="quiz-result-panel"><strong>Perfil identificado</strong><span>Falta conteúdo e constância.</span></div>
       `
     },
     D: {
-      title: "Seu diagnóstico: você precisa de organização e escala.",
+      title: "{nome}, seu diagnóstico: você precisa de organização e escala.",
       button: "Quero Acessar o Cofre Agora",
       html: `
-        <p>Pelas suas respostas, você não quer só começar. Você quer ter mais clareza, mais material e mais consistência para crescer com estratégia.</p>
+        <p>{nome}, pelas suas respostas, você não quer só começar. Você quer ter mais clareza, mais material e mais consistência para crescer com estratégia.</p>
         <div class="quiz-result-panel"><strong>Perfil identificado</strong><span>Quer crescer e organizar melhor.</span></div>
       `
     }
   };
 
   const tiePriority = ["C", "D", "B", "A"];
+  const personalize = (text) => text.replaceAll("{nome}", quizName);
 
   const updateProgress = () => {
     if (!progressFill) return;
@@ -197,12 +201,19 @@ if (quiz) {
     if (result) result.classList.remove("is-active");
   };
 
+  const updateQuestionNames = () => {
+    quiz.querySelectorAll("[data-question-template]").forEach((question) => {
+      question.textContent = personalize(question.dataset.questionTemplate || question.textContent);
+    });
+  };
+
   const showStep = (index) => {
     hideUtilityScreens();
     steps.forEach((step, stepIndex) => {
       step.classList.toggle("is-active", stepIndex === index);
     });
     currentStep = index;
+    updateQuestionNames();
     updateProgress();
   };
 
@@ -221,8 +232,8 @@ if (quiz) {
     updateProgress();
 
     if (progressLabel) progressLabel.textContent = "Diagnóstico concluído";
-    if (resultTitle) resultTitle.textContent = content.title;
-    if (resultMessage) resultMessage.innerHTML = content.html;
+    if (resultTitle) resultTitle.textContent = personalize(content.title);
+    if (resultMessage) resultMessage.innerHTML = personalize(content.html);
     if (resultLink) resultLink.textContent = content.button;
     if (result) result.classList.add("is-active");
   };
@@ -256,6 +267,26 @@ if (quiz) {
 
   if (startButton) {
     startButton.addEventListener("click", () => showStep(0));
+  }
+
+  if (nameInput && nameNext) {
+    nameInput.addEventListener("input", () => {
+      nameNext.disabled = nameInput.value.trim().length < 2;
+    });
+
+    nameInput.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" && !nameNext.disabled) {
+        event.preventDefault();
+        nameNext.click();
+      }
+    });
+
+    nameNext.addEventListener("click", () => {
+      const value = nameInput.value.trim();
+      if (value.length < 2) return;
+      quizName = value.split(/\s+/)[0];
+      showStep(1);
+    });
   }
 
   quiz.addEventListener("click", (event) => {

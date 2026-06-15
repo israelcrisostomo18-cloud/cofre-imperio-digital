@@ -432,8 +432,18 @@
             </div>
 
             <div class="quiz-step" data-quiz-step>
-              <small>Pergunta 1 de 7</small>
-              <h3>Qual é sua maior dificuldade hoje no digital?</h3>
+              <small>Etapa 1 de 8</small>
+              <h3>Qual é o seu nome?</h3>
+              <label class="quiz-name-field">
+                <span>Digite seu primeiro nome</span>
+                <input type="text" data-quiz-name-input autocomplete="given-name" placeholder="Seu nome" />
+              </label>
+              <button class="btn btn-primary quiz-next" type="button" data-quiz-name-next disabled>Continuar</button>
+            </div>
+
+            <div class="quiz-step" data-quiz-step>
+              <small>Etapa 2 de 8</small>
+              <h3 data-question-template="{nome}, qual é sua maior dificuldade hoje no digital?">Qual é sua maior dificuldade hoje no digital?</h3>
               <div class="quiz-options">
                 <button type="button" data-profile="A">Não sei por onde começar</button>
                 <button type="button" data-profile="B">Tenho conteúdo, mas não vendo</button>
@@ -443,8 +453,8 @@
             </div>
 
             <div class="quiz-step" data-quiz-step>
-              <small>Pergunta 2 de 7</small>
-              <h3>Você já tentou vender algo pela internet?</h3>
+              <small>Etapa 3 de 8</small>
+              <h3 data-question-template="{nome}, você já tentou vender algo pela internet?">Você já tentou vender algo pela internet?</h3>
               <div class="quiz-options">
                 <button type="button" data-profile="A">Nunca tentei</button>
                 <button type="button" data-profile="B">Já tentei, mas não tive resultado</button>
@@ -454,8 +464,8 @@
             </div>
 
             <div class="quiz-step" data-quiz-step>
-              <small>Pergunta 3 de 7</small>
-              <h3>O que mais te trava hoje?</h3>
+              <small>Etapa 4 de 8</small>
+              <h3 data-question-template="{nome}, o que mais te trava hoje?">O que mais te trava hoje?</h3>
               <div class="quiz-options">
                 <button type="button" data-profile="C">Falta de ideias</button>
                 <button type="button" data-profile="C">Falta de conteúdo pronto</button>
@@ -465,8 +475,8 @@
             </div>
 
             <div class="quiz-step" data-quiz-step>
-              <small>Pergunta 4 de 7</small>
-              <h3>Qual tipo de material você mais precisa agora?</h3>
+              <small>Etapa 5 de 8</small>
+              <h3 data-question-template="{nome}, qual tipo de material você mais precisa agora?">Qual tipo de material você mais precisa agora?</h3>
               <div class="quiz-options">
                 <button type="button" data-profile="C">Vídeos prontos</button>
                 <button type="button" data-profile="C">Conteúdos virais</button>
@@ -476,8 +486,8 @@
             </div>
 
             <div class="quiz-step" data-quiz-step>
-              <small>Pergunta 5 de 7</small>
-              <h3>Quanto tempo você consegue dedicar por dia?</h3>
+              <small>Etapa 6 de 8</small>
+              <h3 data-question-template="{nome}, quanto tempo você consegue dedicar por dia?">Quanto tempo você consegue dedicar por dia?</h3>
               <div class="quiz-options">
                 <button type="button" data-profile="A">Menos de 30 minutos</button>
                 <button type="button" data-profile="A">30 minutos a 1 hora</button>
@@ -487,8 +497,8 @@
             </div>
 
             <div class="quiz-step" data-quiz-step>
-              <small>Pergunta 6 de 7</small>
-              <h3>Qual é seu objetivo principal?</h3>
+              <small>Etapa 7 de 8</small>
+              <h3 data-question-template="{nome}, qual é seu objetivo principal?">Qual é seu objetivo principal?</h3>
               <div class="quiz-options">
                 <button type="button" data-profile="A">Começar do zero</button>
                 <button type="button" data-profile="B">Fazer minha primeira venda</button>
@@ -498,8 +508,8 @@
             </div>
 
             <div class="quiz-step" data-quiz-step>
-              <small>Pergunta 7 de 7</small>
-              <h3>Se você tivesse acesso a conteúdos, vídeos, cursos, ideias e materiais organizados, você usaria para começar ainda essa semana?</h3>
+              <small>Etapa 8 de 8</small>
+              <h3 data-question-template="{nome}, se você tivesse acesso a conteúdos, vídeos, cursos, ideias e materiais organizados, você usaria para começar ainda essa semana?">Se você tivesse acesso a conteúdos, vídeos, cursos, ideias e materiais organizados, você usaria para começar ainda essa semana?</h3>
               <div class="quiz-options">
                 <button type="button" data-profile="D">Sim, com certeza</button>
                 <button type="button" data-profile="A">Talvez, se for simples</button>
@@ -520,11 +530,16 @@
               <div class="quiz-result-message" data-quiz-result-message></div>
               <div class="quiz-vsl" aria-label="Vídeo explicativo do diagnóstico">
                 <p>Assista esse vídeo rápido para entender como o Cofre Império Digital pode te ajudar a sair da dúvida e começar a executar com materiais prontos.</p>
-                <div class="quiz-vsl-frame">
-                  <video class="quiz-vsl-video" controls preload="metadata" playsinline>
-                    <source src="/videos/vsl-cofre-imperio-digital.mp4" type="video/mp4" />
-                    Seu navegador não conseguiu carregar o vídeo explicativo.
-                  </video>
+                <div class="vsl-phone-wrapper">
+                  <div class="iphone-vsl-frame">
+                    <span class="iphone-vsl-speaker" aria-hidden="true"></span>
+                    <div class="vsl-phone-screen">
+                      <video class="quiz-vsl-video vsl-phone-video" controls preload="metadata" playsinline>
+                        <source src="/videos/vsl-cofre-imperio-digital.mp4" type="video/mp4" />
+                        Seu navegador não conseguiu carregar o vídeo explicativo.
+                      </video>
+                    </div>
+                  </div>
                 </div>
               </div>
               <a class="btn btn-primary" href="https://pay.hotmart.com/R106118031H?checkoutMode=10" data-checkout-link data-quiz-result-link>Quero Acessar o Cofre Agora</a>
