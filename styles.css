@@ -6479,3 +6479,196 @@ body {
     text-align: center;
   }
 }
+
+/* Oferta principal consolidada: tudo em coluna, centralizado e sem elementos soltos. */
+#oferta .container.offer-card {
+  width: min(100% - 32px, 800px);
+  max-width: 800px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  padding: clamp(18px, 4vw, 34px);
+  border: 1px solid rgba(243, 214, 124, 0.3);
+  border-radius: clamp(24px, 3vw, 32px);
+  background:
+    radial-gradient(circle at 50% 0%, rgba(243, 214, 124, 0.16), transparent 23rem),
+    radial-gradient(circle at 50% 100%, rgba(88, 145, 255, 0.1), transparent 24rem),
+    linear-gradient(145deg, rgba(13, 25, 48, 0.96), rgba(4, 8, 18, 0.985));
+  text-align: center;
+}
+
+#oferta .price-box {
+  width: min(100%, 720px);
+  max-width: 720px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: clamp(10px, 1.8vw, 14px);
+  padding: clamp(22px, 4vw, 42px);
+  border: 1px solid rgba(243, 214, 124, 0.32);
+  border-radius: clamp(22px, 3vw, 30px);
+  background:
+    radial-gradient(circle at 50% 0%, rgba(243, 214, 124, 0.15), transparent 18rem),
+    linear-gradient(145deg, rgba(8, 16, 30, 0.98), rgba(2, 5, 12, 0.985));
+  text-align: center;
+}
+
+#oferta .price-box::before {
+  background:
+    radial-gradient(circle at 85% 12%, rgba(243, 214, 124, 0.09), transparent 13rem),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0));
+  opacity: 1;
+}
+
+#oferta .price-box::after {
+  background:
+    radial-gradient(circle at 18% 10%, rgba(88, 145, 255, 0.09), transparent 14rem),
+    linear-gradient(180deg, rgba(5, 8, 20, 0), rgba(5, 8, 20, 0.28));
+}
+
+#oferta .price-box > * {
+  max-width: 100%;
+  margin-inline: auto;
+  text-align: center;
+}
+
+#oferta .price-box .promo-label {
+  order: 1;
+}
+
+#oferta .offer-price-title {
+  order: 2;
+  max-width: 650px;
+  color: #fff8ec;
+  font-size: clamp(1.9rem, 4.2vw, 3.2rem);
+  line-height: 1.04;
+}
+
+#oferta .offer-price-text {
+  order: 3;
+  max-width: 610px;
+  color: rgba(255, 248, 236, 0.78);
+  font-size: clamp(1rem, 1.8vw, 1.16rem);
+  line-height: 1.55;
+}
+
+#oferta .price-box .from-price {
+  order: 4;
+  display: block;
+  margin-top: clamp(4px, 1vw, 8px);
+  color: rgba(255, 248, 236, 0.68);
+  font-size: clamp(1.02rem, 2.3vw, 1.28rem);
+  font-weight: 850;
+}
+
+#oferta .price-box .from-price s {
+  color: rgba(255, 248, 236, 0.72);
+  text-decoration-color: rgba(255, 248, 236, 0.9);
+  text-decoration-thickness: 2px;
+}
+
+#oferta .price-box .installment-price {
+  order: 5;
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: baseline;
+  justify-content: center;
+  gap: clamp(7px, 1.4vw, 12px);
+  color: #fff1bc;
+  font-size: clamp(4.2rem, 9.4vw, 7.1rem);
+  line-height: 0.86;
+  letter-spacing: -0.035em;
+  text-shadow: 0 0 34px rgba(212, 175, 55, 0.28);
+}
+
+#oferta .price-box .installment-price span {
+  max-width: none;
+  color: rgba(255, 248, 236, 0.9);
+  font-size: clamp(1rem, 2.3vw, 1.45rem);
+  line-height: 1.05;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+
+#oferta .price-box .cash-price {
+  order: 6;
+  color: rgba(255, 248, 236, 0.82);
+  font-size: clamp(1rem, 2.3vw, 1.26rem);
+  font-weight: 850;
+}
+
+#oferta .offer-guarantee-card {
+  order: 7;
+  width: min(100%, 560px);
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  margin-top: clamp(2px, 1vw, 8px);
+}
+
+#oferta .offer-guarantee-card p {
+  margin: 6px 0 0;
+}
+
+#oferta .price-box .urgency-banner.compact {
+  order: 8;
+  width: min(100%, 470px);
+  margin-top: clamp(2px, 1vw, 8px);
+  padding: 12px 16px;
+  border-color: rgba(243, 214, 124, 0.32);
+  background: linear-gradient(135deg, rgba(138, 101, 8, 0.92), rgba(60, 31, 18, 0.94));
+  text-align: center;
+}
+
+#oferta .price-box .urgency-banner.compact span {
+  display: none;
+}
+
+#oferta .price-box .btn.full {
+  order: 9;
+  width: min(100%, 420px);
+  min-height: 64px;
+  margin-top: clamp(4px, 1vw, 10px);
+  white-space: nowrap;
+}
+
+#oferta .price-box .microcopy {
+  order: 10;
+  max-width: 560px;
+  margin-top: 0;
+  color: rgba(255, 248, 236, 0.72);
+  font-size: clamp(0.88rem, 1.8vw, 1rem);
+}
+
+@media (max-width: 560px) {
+  #oferta .container.offer-card {
+    width: min(100% - 24px, 800px);
+    padding: 12px;
+  }
+
+  #oferta .price-box {
+    padding: 22px 14px;
+  }
+
+  #oferta .price-box .installment-price {
+    flex-wrap: wrap;
+    row-gap: 2px;
+    font-size: clamp(3.9rem, 18vw, 5.3rem);
+  }
+
+  #oferta .offer-guarantee-card {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+  }
+
+  #oferta .price-box .btn.full {
+    width: 100%;
+    min-height: 60px;
+    white-space: normal;
+  }
+}
