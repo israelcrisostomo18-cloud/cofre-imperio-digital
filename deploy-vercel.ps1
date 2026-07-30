@@ -35,7 +35,7 @@ Write-Host "Quando a Vercel perguntar:" -ForegroundColor Yellow
 Write-Host "- Set up and deploy? Responda Y"
 Write-Host "- Which scope? Escolha sua conta"
 Write-Host "- Link to existing project? Responda N se ainda nao existir"
-Write-Host "- Project name: cofre-imperio-digital"
+Write-Host "- Project name: mirje-quizzes"
 Write-Host "- Directory: ./"
 Write-Host "- Override settings? Responda N"
 Write-Host ""
